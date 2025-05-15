@@ -1,4 +1,4 @@
-﻿# README
+﻿# ❔ Acerca de este repositorio
  ## Descripción
  En este repositorio se encuentran los códigos y escritos realizados para para el proyecto FAS por Diego Concha (diego.concha.a@usach.cl)
 
