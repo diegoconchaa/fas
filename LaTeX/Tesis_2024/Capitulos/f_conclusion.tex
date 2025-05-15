@@ -1,0 +1,57 @@
+\chapter{Conclusiones y Recomendaciones}
+
+En este capítulo se presenta un resumen de los principales hallazgos y aportes del estudio, se describen las implicaciones en torno al mantenimiento predictivo y se plantean posibles líneas de investigación futuras para profundizar y ampliar los resultados obtenidos.
+
+\section{Conclusiones del Estudio}
+\begin{enumerate}
+    \item \textbf{Diseño y construcción del túnel de viento a escala:}  
+    La implementación de un prototipo con estructura modular permitió reproducir de forma simplificada las condiciones de ventilación minera. Se validó la robustez mecánica del sistema y se logró un montaje estable del ventilador y de los sensores, asegurando mediciones representativas de variables como corriente, voltaje, flujo de aire, temperatura y vibración.
+
+    \item \textbf{Plataforma de adquisición de datos y control:}  
+    El uso de Arduino para la lectura de sensores, junto con un servicio REST API y una interfaz web, demostró ser una solución ágil y escalable. La base de datos SQLite manejó de forma satisfactoria el almacenamiento y la consulta de información, facilitando la generación de históricos y la exportación de los resultados para su análisis.
+
+    \item \textbf{Simulación CFD en ANSYS:}  
+    El modelo numérico desarrollado para analizar la dinámica del flujo de aire dentro del túnel mostró un error promedio de aproximadamente 25\,\% al comparar las velocidades simuladas con las medidas, lo que se consideró aceptable dada la escala del prototipo y los supuestos simplificadores (condiciones de contorno ideales, modelo de turbulencia genérico, entre otros). Los campos de velocidad y las zonas de recirculación obtenidas en la simulación fueron coherentes con la evidencia experimental.
+
+    \item \textbf{Validación de la metodología:}  
+    La correlación entre los datos experimentales y la simulación CFD confirmó la eficacia de la metodología propuesta para caracterizar y estimar el comportamiento aerodinámico del sistema. Este marco de trabajo puede escalarse a ventiladores de mayor tamaño o incorporarse a un entorno minero real, con los ajustes pertinentes en la geometría del túnel y en las condiciones de operación.
+
+    \item \textbf{Visión integral de la instrumentación y la simulación:}  
+    El enfoque combinado —instrumentación real y modelado computacional— brindó una plataforma sólida para entender y optimizar el funcionamiento del ventilador. A su vez, sentó las bases para la integración de técnicas de mantenimiento predictivo.
+
+\end{enumerate}
+
+\section{Implicaciones para el Mantenimiento Predictivo}
+\begin{enumerate}
+    \item \textbf{Monitoreo continuo de variables clave:}  
+    La plataforma desarrollada permite registrar parámetros como corriente, voltaje y vibración de manera continua. Estos indicadores se asocian a fallas incipientes en equipos rotativos; por tanto, su monitoreo posibilita diagnosticar problemas mecánicos o eléctricos antes de que se tornen críticos.
+
+    \item \textbf{Correlación con modelos CFD:}  
+    Al comparar los valores reales de flujo de aire con los resultados simulados, se puede trazar un perfil “ideal” o de referencia para el ventilador. Cualquier desviación relevante en las velocidades medidas podría indicar pérdidas de eficiencia o daños estructurales, lo cual permitiría programar intervenciones de mantenimiento de forma temprana.
+
+    \item \textbf{Base de datos para aprendizaje automático:}  
+    El sistema de adquisición y almacenamiento en SQLite genera un histórico de datos continuo. Dicho histórico constituye la materia prima para entrenar algoritmos de machine learning o análisis predictivo, capaces de detectar patrones que anticipen la aparición de fallas o el desgaste de componentes.
+
+    \item \textbf{Reducción de costos y tiempos de inactividad:}  
+    La adopción de estrategias de mantenimiento basadas en condición, sustentadas en la información proveniente de la plataforma, reduce la probabilidad de fallas inesperadas. Esto significa menores tiempos de inactividad y optimización de los recursos empleados en reparaciones, con impacto económico positivo.
+\end{enumerate}
+
+\section{Recomendaciones para Futuras Investigaciones}
+\begin{enumerate}
+    \item \textbf{Refinamiento del modelo CFD:}  
+    Para obtener mayor precisión en la predicción de velocidad y en la caracterización del flujo, podrían aplicarse modelos de turbulencia más avanzados (\texttt{k-$\omega$} SST o RSM) o simulaciones transitorias (DES o LES). También se recomienda refinar la malla en regiones críticas, como la zona del impulsor.
+
+    \item \textbf{Expansión de la instrumentación:}  
+    Incluir sensores de presión diferencial y sensores de gases ayudaría a representar mejor las condiciones reales de la minería subterránea, donde la ventilación cumple el rol fundamental de disipar contaminantes y controlar la temperatura.
+
+    \item \textbf{Incorporación de técnicas de aprendizaje automático:}  
+    El histórico de datos recogidos puede emplearse para entrenar modelos que predigan la evolución de variables como la vibración o el consumo energético, facilitando la detección temprana de anomalías. Se sugiere explorar algoritmos de clasificación y regresión con redes neuronales o métodos de árboles de decisión.
+
+    \item \textbf{Pruebas a mayor escala y en entornos más cercanos a la minería real:}  
+    Para validar la viabilidad de la propuesta en un entorno industrial, se recomienda la construcción de un prototipo de dimensiones mayores o la adaptación del sistema a un ventilador minero existente, teniendo en cuenta parámetros como presión, polvo, humedad y temperatura extrema.
+
+    \item \textbf{Análisis de la rentabilidad y ROI de la implementación:}  
+    Se podrían realizar estudios económicos que comparen el costo de inversión en instrumentación y software de simulación con los ahorros derivados de un mantenimiento predictivo más eficaz, de forma que se cuantifique el impacto financiero de la adopción de estas tecnologías.
+\end{enumerate}
+
+En suma, los resultados de esta investigación confirman la viabilidad y utilidad de la metodología propuesta para estudiar, evaluar y optimizar el funcionamiento de un sistema de ventilación, sentando a la vez las bases para estrategias de mantenimiento predictivo. La coherencia de los datos experimentales y los modelos CFD refuerza la confiabilidad de la aproximación, abriendo camino a nuevas investigaciones y desarrollos que podrían acercar este prototipo experimental a aplicaciones reales en la industria minera.

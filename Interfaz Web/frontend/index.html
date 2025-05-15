@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <title>FAS Ventilator Prototype</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="logo-container">
+      <img src="assets/logo.png" alt="FAS Ventilador Logo" class="logo">
+    </div>
+    <h1>FAS Ventilator Prototype</h1>
+    <div class="input-group">
+      <label for="ip">Controller IP Address:</label>
+      <input type="text" id="ip" placeholder="Enter main IP" value="192.168.0.16">
+    </div>
+    <div class="input-group">
+      <label for="fanIp">Fan RPM IP Address:</label>
+      <input type="text" id="fanIp" placeholder="Enter fan IP" value="192.168.0.17">
+    </div>
+    <div class="input-group">
+      <label>Select Sensors:</label>
+      <div style="display:flex; flex-wrap: wrap; width:100%;">
+        <label><input type="checkbox" class="sensor-checkbox" value="adxl345"> Vibration</label>
+        <label><input type="checkbox" class="sensor-checkbox" value="amg8833"> Camera</label>
+        <label><input type="checkbox" class="sensor-checkbox" value="lm35"> Temperature</label>
+        <label><input type="checkbox" class="sensor-checkbox" value="outflow"> Outflow</label>
+        <label><input type="checkbox" class="sensor-checkbox" value="fanrpm"> Fan RPM</label>
+        <label><input type="checkbox" class="sensor-checkbox" value="acs712"> Current</label>
+        <label><input type="checkbox" class="sensor-checkbox" value="fz0430"> Voltage</label>
+      </div>
+    </div>
+    <div class="input-group">
+      <label for="interval">Update Interval (ms):</label>
+      <input type="number" id="interval" value="100">
+    </div>
+    <div class="input-group">
+      <label for="fanSpeed">Fan Speed:</label>
+      <input type="range" id="fanSpeed" min="0" max="100" value="0">
+      <span id="fanSpeedValue">0%</span>
+    </div>
+    <div class="input-group">
+      <button onclick="startFetching()" style="margin-left:160px;">Start</button>
+      <button onclick="stopFetching()">Stop</button>
+      <button onclick="toggleMutePreview()">Charts</button>
+    </div>
+    <div id="mutePreviewContainer" style="display:none;">
+      <ul id="mutePreviewList"></ul>
+    </div>
+    <div id="chartsContainer" class="charts-grid">
+      <canvas id="adxl345Chart" style="display:none;"></canvas>
+      <canvas id="amg8833Chart" style="display:none;"></canvas>
+      <div id="amg8833Section" style="display:none;">
+        <h2 style="margin-top:10px">Thermal Camera</h2>
+        <div class="thermal-scale">
+          <span>20°C</span>
+          <div class="scale-bar"></div>
+          <span>40°C</span>
+        </div>
+        <div id="amg-container">
+          <div id="amg-round">
+            <div id="amg8833Grid"></div>
+          </div>
+        </div>
+      </div>
+      <canvas id="voltageChart" style="display:none;"></canvas>
+      <canvas id="lm35Chart" style="display:none;"></canvas>
+      <canvas id="fanrpmChart" style="display:none;"></canvas>
+      <canvas id="acs712Chart" style="display:none;"></canvas>
+      <canvas id="fz0430Chart" style="display:none;"></canvas>
+    </div>
+  </div>
+  <script src="script.js" defer></script>
+</body>
+</html>

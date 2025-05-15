@@ -1,0 +1,84 @@
+\chapter{Discusión}
+
+En este capítulo se analizan críticamente los resultados presentados en el capítulo anterior, evaluando el desempeño del modelo de túnel de viento a escala y la eficacia de la plataforma de adquisición de datos y de la simulación CFD en ANSYS. Además, se exponen las limitaciones encontradas, así como las oportunidades de mejora y de futuras extensiones al proyecto.
+
+\section{Evaluación de la Plataforma de Control y Adquisición de Datos}
+La plataforma desarrollada, basada en un microcontrolador Arduino, un servicio REST API y una interfaz web, demostró la capacidad de configurar y monitorizar en tiempo real los parámetros clave del túnel de viento a escala. El almacenamiento en la base de datos SQLite permitió gestionar y consultar los datos de forma ágil, facilitando la explotación analítica posterior.
+
+\subsection{Contribuciones Relevantes}
+\begin{itemize}
+    \item \textbf{Flexibilidad operativa:} La interfaz web ofreció un control manual o automático de la velocidad del ventilador, lo que habilitó la realización de distintos tipos de pruebas experimentales sin requerir modificaciones de hardware.
+    \item \textbf{Ahorro de tiempo y accesibilidad:} Al permitir ajustes rápidos de configuración y la visualización de los datos en tiempo real, se redujo la necesidad de reconfigurar o detener completamente el sistema para la toma de mediciones.
+    \item \textbf{Escalabilidad:} A pesar de haber sido diseñada para un prototipo a escala, la arquitectura modular de la plataforma puede migrarse a sistemas con más sensores y mayor volumen de datos, conservando la misma lógica de API y almacenamiento.
+\end{itemize}
+
+\subsection{Limitaciones}
+\begin{itemize}
+    \item \textbf{Rendimiento en entornos con muchos sensores:} Durante los ensayos se empleó un número limitado de sensores. La integración de más dispositivos podría requerir optimizaciones en la transmisión de datos, tasas de muestreo o incluso en el tipo de base de datos.
+    \item \textbf{Dependencia de la conexión:} Si bien se probaron conexión serial y Wi-Fi, en escenarios mineros reales la estabilidad de la comunicación es crucial, por lo que deberían considerarse protocolos industriales robustos o redundancia en la red.
+\end{itemize}
+
+\section{Análisis de las Mediciones Experimentales}
+\subsection{Exactitud y Robustez de los Sensores}
+Los resultados mostraron coherencia interna en las mediciones de corriente, voltaje, flujo de aire, temperatura y vibración. Se comprobó que los sensores, cuando se calibran correctamente, ofrecen un nivel de precisión adecuado para un prototipo de baja escala. No obstante, algunas imprecisiones pueden originarse en:
+\begin{itemize}
+    \item \textbf{Deriva térmica y electrónica:} Sensores como el LM35 y el anemómetro pueden presentar desviaciones tras periodos prolongados de operación.
+    \item \textbf{Ruido en señales analógicas:} Aunque se emplearon condensadores de filtrado, la cercanía física de varios sensores y la alimentación compartida pueden introducir pequeñas fluctuaciones.
+\end{itemize}
+
+\subsection{Variabilidad en la Velocidad de Flujo}
+Algunas oscilaciones en la velocidad de flujo medidas por el anemómetro podrían deberse a:
+\begin{itemize}
+    \item \textbf{Turbulencias locales:} Pequeñas turbulencias o recirculaciones cercanas a las paredes del túnel.
+    \item \textbf{Cambios en la velocidad del ventilador:} La señal PWM no siempre es perfectamente estable, especialmente a frecuencias bajas.
+\end{itemize}
+
+A pesar de esto, la repetitividad de los resultados sugiere que el sistema de medición cuenta con un margen de error aceptable para la validación comparativa con la simulación CFD.
+
+\section{Discusión de la Simulación CFD}
+\subsection{Selección del Modelo y Parámetros Numéricos}
+La elección del modelo de turbulencia \texttt{k-$\epsilon$} estándar y las simplificaciones geométricas (por ejemplo, la idealización de las aspas del ventilador) tuvieron un impacto en la exactitud de la simulación. La constatación de un error porcentual del orden de 7\,\% en la velocidad de flujo sugiere que, si se buscase mayor precisión, podrían considerarse:
+\begin{itemize}
+    \item Modelos de turbulencia más avanzados (\texttt{k-$\omega$}, SST o incluso RSM) para capturar las fluctuaciones del flujo y las zonas de recirculación con mayor fidelidad.
+    \item Una malla refinada en la proximidad del rotor, aplicando modelos de capa límite que mejoren el cálculo de las velocidades cercanas a las paredes del ventilador y del túnel.
+    \item Simulaciones transitorias (no estacionarias), que podrían reflejar mejor la naturaleza pulsante del flujo, especialmente a RPM más altas.
+\end{itemize}
+
+\subsection{Comparación con Datos Experimentales}
+La correlación entre los valores de velocidad simulados y medidos fue consistentemente aceptable en los tres puntos de operación estudiados (833, 2500 y 4200 RPM). Esto indica que, en términos globales, el modelo numérico predice correctamente la tendencia de incremento del flujo de aire con el aumento de las RPM, lo que valida tanto la aproximación del método como la fiabilidad de las mediciones.
+
+\section{Síntesis de la Comparación Experimental-Simulación}
+\begin{itemize}
+    \item \textbf{Coincidencia de tendencias:} Tanto los datos experimentales como los resultados de CFD muestran que el flujo de aire se incrementa proporcionalmente con la velocidad del ventilador, confirmando el comportamiento esperado.
+    \item \textbf{Discrepancias razonables:} Las diferencias se mantuvieron por debajo del 10\,\%, lo cual se considera aceptable para un estudio a escala. Parte de estas discrepancias podrían atribuirse a condiciones de contorno ideales en la simulación frente a condiciones reales en el prototipo (pérdidas de calor, variaciones de presión ambiente, alineación del ventilador, etc.).
+\end{itemize}
+
+\section{Implicaciones para el Mantenimiento Predictivo}
+Aunque la validación se enfocó en el flujo de aire, el sistema de adquisición integra también sensores de corriente, voltaje y vibración, variables de gran relevancia para el mantenimiento predictivo. El hecho de que estas mediciones se realicen de manera continua abre la posibilidad de:
+\begin{itemize}
+    \item Identificar patrones de desgaste o desequilibrio del ventilador a lo largo del tiempo.
+    \item Correlacionar el incremento de consumo de potencia eléctrica con posibles obstrucciones o deterioro en las aspas del ventilador.
+    \item Adoptar estrategias de mantenimiento condicional basadas en umbrales (por ejemplo, vibración excesiva o calentamiento anormal) para anticiparse a fallas.
+\end{itemize}
+Estos aspectos no formaron parte principal de la discusión en este estudio, pero el sistema desarrollado sienta las bases para su implementación futura.
+
+\section{Limitaciones del Estudio}
+\begin{itemize}
+    \item \textbf{Escalabilidad a entornos reales:} El prototipo se diseñó a una escala reducida, por lo que, si bien la metodología es extrapolable, las condiciones de presión y temperatura en una mina real podrían requerir modelos más complejos y soluciones de ingeniería a mayor escala.
+    \item \textbf{Restricción de variables analizadas:} El foco principal fue la validación del flujo de aire y la comparación con la potencia consumida y la vibración. El proyecto no abarcó la simulación detallada de la transferencia de calor o la influencia de contaminantes en el flujo.
+    \item \textbf{Modelo simplificado del ventilador:} Se empleó una aproximación genérica para simular la zona de rotación del ventilador. Un modelado más detallado del impulsor y de las palas podría refinar la precisión de las predicciones de velocidad.
+\end{itemize}
+
+\section{Oportunidades de Mejora y Trabajo Futuro}
+Con base en los resultados y las observaciones anteriores, se vislumbran varias líneas de desarrollo:
+\begin{itemize}
+    \item \textbf{Mejora de la simulación CFD:} Implementar modelos de turbulencia más sofisticados o simulaciones transitorias para afinar la predicción de zonas de recirculación y fluctuaciones de flujo.
+    \item \textbf{Ampliación de la instrumentación:} Añadir sensores de presión diferencial a lo largo del túnel para una validación más exhaustiva del campo de presiones.
+    \item \textbf{Incorporación de Machine Learning:} Aprovechar las mediciones continuas para entrenar modelos de aprendizaje automático que anticipen cambios en la eficiencia del ventilador o inicios de fallas mecánicas.
+    \item \textbf{Escenarios más cercanos a minería real:} Experimentar con variaciones de temperatura o humedad que aproximen las condiciones subterráneas, y evaluar el impacto de la presencia de polvo o partículas en el flujo de aire.
+\end{itemize}
+
+\section{Conclusiones de la Discusión}
+La construcción de un túnel de viento a escala y su integración con un sistema automatizado de adquisición de datos y un modelo CFD han demostrado ser efectivos para analizar y validar el comportamiento de un ventilador sometido a diferentes velocidades. A pesar de las simplificaciones inherentes al prototipo y a la simulación, el acuerdo entre los datos experimentales y numéricos fue satisfactorio. 
+
+Desde un punto de vista metodológico, este trabajo aporta un marco reproducible para la experimentación y validación de modelos CFD, con posibilidades de expansión hacia estrategias de mantenimiento predictivo. Los hallazgos, finalmente, subrayan la necesidad de una aproximación combinada (experimentación + modelado + análisis de datos) para afrontar los desafíos de la ventilación y el control de equipos rotativos en entornos mineros.

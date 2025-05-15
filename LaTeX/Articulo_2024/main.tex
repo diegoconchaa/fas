@@ -1,0 +1,513 @@
+%  LaTeX support: latex@mdpi.com 
+%  For support, please attach all files needed for compiling as well as the log file, and specify your operating system, LaTeX version, and LaTeX editor.
+
+%=================================================================
+\documentclass[journal,article,submit,pdftex,moreauthors]{Definitions/mdpi} 
+
+%--------------------
+% Class Options:
+%--------------------
+%----------
+% journal
+%----------
+% Choose between the following MDPI journals:
+% acoustics, actuators, addictions, admsci, adolescents, aerobiology, aerospace, agriculture, agriengineering, agrochemicals, agronomy, ai, air, algorithms, allergies, alloys, analytica, analytics, anatomia, animals, antibiotics, antibodies, antioxidants, applbiosci, appliedchem, appliedmath, applmech, applmicrobiol, applnano, applsci, aquacj, architecture, arm, arthropoda, arts, asc, asi, astronomy, atmosphere, atoms, audiolres, automation, axioms, bacteria, batteries, bdcc, behavsci, beverages, biochem, bioengineering, biologics, biology, biomass, biomechanics, biomed, biomedicines, biomedinformatics, biomimetics, biomolecules, biophysica, biosensors, biotech, birds, bloods, blsf, brainsci, breath, buildings, businesses, cancers, carbon, cardiogenetics, catalysts, cells, ceramics, challenges, chemengineering, chemistry, chemosensors, chemproc, children, chips, cimb, civileng, cleantechnol, climate, clinpract, clockssleep, cmd, coasts, coatings, colloids, colorants, commodities, compounds, computation, computers, condensedmatter, conservation, constrmater, cosmetics, covid, crops, cryptography, crystals, csmf, ctn, curroncol, cyber, dairy, data, ddc, dentistry, dermato, dermatopathology, designs, devices, diabetology, diagnostics, dietetics, digital, disabilities, diseases, diversity, dna, drones, dynamics, earth, ebj, ecologies, econometrics, economies, education, ejihpe, electricity, electrochem, electronicmat, electronics, encyclopedia, endocrines, energies, eng, engproc, entomology, entropy, environments, environsciproc, epidemiologia, epigenomes, est, fermentation, fibers, fintech, fire, fishes, fluids, foods, forecasting, forensicsci, forests, foundations, fractalfract, fuels, future, futureinternet, futurepharmacol, futurephys, futuretransp, galaxies, games, gases, gastroent, gastrointestdisord, gels, genealogy, genes, geographies, geohazards, geomatics, geosciences, geotechnics, geriatrics, grasses, gucdd, hazardousmatters, healthcare, hearts, hemato, hematolrep, heritage, higheredu, highthroughput, histories, horticulturae, hospitals, humanities, humans, hydrobiology, hydrogen, hydrology, hygiene, idr, ijerph, ijfs, ijgi, ijms, ijns, ijpb, ijtm, ijtpp, ime, immuno, informatics, information, infrastructures, inorganics, insects, instruments, inventions, iot, j, jal, jcdd, jcm, jcp, jcs, jcto, jdb, jeta, jfb, jfmk, jimaging, jintelligence, jlpea, jmmp, jmp, jmse, jne, jnt, jof, joitmc, jor, journalmedia, jox, jpm, jrfm, jsan, jtaer, jvd, jzbg, kidneydial, kinasesphosphatases, knowledge, land, languages, laws, life, liquids, literature, livers, logics, logistics, lubricants, lymphatics, machines, macromol, magnetism, magnetochemistry, make, marinedrugs, materials, materproc, mathematics, mca, measurements, medicina, medicines, medsci, membranes, merits, metabolites, metals, meteorology, methane, metrology, micro, microarrays, microbiolres, micromachines, microorganisms, microplastics, minerals, mining, modelling, molbank, molecules, mps, msf, mti, muscles, nanoenergyadv, nanomanufacturing,\gdef\@continuouspages{yes}} nanomaterials, ncrna, ndt, network, neuroglia, neurolint, neurosci, nitrogen, notspecified, %%nri, nursrep, nutraceuticals, nutrients, obesities, oceans, ohbm, onco, %oncopathology, optics, oral, organics, organoids, osteology, oxygen, parasites, parasitologia, particles, pathogens, pathophysiology, pediatrrep, pharmaceuticals, pharmaceutics, pharmacoepidemiology,\gdef\@ISSN{2813-0618}\gdef\@continuous pharmacy, philosophies, photochem, photonics, phycology, physchem, physics, physiologia, plants, plasma, platforms, pollutants, polymers, polysaccharides, poultry, powders, preprints, proceedings, processes, prosthesis, proteomes, psf, psych, psychiatryint, psychoactives, publications, quantumrep, quaternary, qubs, radiation, reactions, receptors, recycling, regeneration, religions, remotesensing, reports, reprodmed, resources, rheumato, risks, robotics, ruminants, safety, sci, scipharm, sclerosis, seeds, sensors, separations, sexes, signals, sinusitis, skins, smartcities, sna, societies, socsci, software, soilsystems, solar, solids, spectroscj, sports, standards, stats, std, stresses, surfaces, surgeries, suschem, sustainability, symmetry, synbio, systems, targets, taxonomy, technologies, telecom, test, textiles, thalassrep, thermo, tomography, tourismhosp, toxics, toxins, transplantology, transportation, traumacare, traumas, tropicalmed, universe, urbansci, uro, vaccines, vehicles, venereology, vetsci, vibration, virtualworlds, viruses, vision, waste, water, wem, wevj, wind, women, world, youth, zoonoticdis 
+% For posting an early version of this manuscript as a preprint, you may use "preprints" as the journal. Changing "submit" to "accept" before posting will remove line numbers.
+
+%---------
+% article
+%---------
+% The default type of manuscript is "article", but can be replaced by: 
+% abstract, addendum, article, book, bookreview, briefreport, casereport, comment, commentary, communication, conferenceproceedings, correction, conferencereport, entry, expressionofconcern, extendedabstract, datadescriptor, editorial, essay, erratum, hypothesis, interestingimage, obituary, opinion, projectreport, reply, retraction, review, perspective, protocol, shortnote, studyprotocol, systematicreview, supfile, technicalnote, viewpoint, guidelines, registeredreport, tutorial
+% supfile = supplementary materials
+
+%----------
+% submit
+%----------
+% The class option "submit" will be changed to "accept" by the Editorial Office when the paper is accepted. This will only make changes to the frontpage (e.g., the logo of the journal will get visible), the headings, and the copyright information. Also, line numbering will be removed. Journal info and pagination for accepted papers will also be assigned by the Editorial Office.
+
+%------------------
+% moreauthors
+%------------------
+% If there is only one author the class option oneauthor should be used. Otherwise use the class option moreauthors.
+
+%---------
+% pdftex
+%---------
+% The option pdftex is for use with pdfLaTeX. Remove "pdftex" for (1) compiling with LaTeX & dvi2pdf (if eps figures are used) or for (2) compiling with XeLaTeX.
+
+%=================================================================
+% MDPI internal commands - do not modify
+\firstpage{1} 
+\makeatletter 
+\setcounter{page}{\@firstpage} 
+\makeatother
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2024}
+\copyrightyear{2024}
+%\externaleditor{Academic Editor: Firstname Lastname}
+\datereceived{ } 
+\daterevised{ } % Comment out if no revised date
+\dateaccepted{ } 
+\datepublished{ } 
+%\datecorrected{} % For corrected papers: "Corrected: XXX" date in the original paper.
+%\dateretracted{} % For corrected papers: "Retracted: XXX" date in the original paper.
+\hreflink{https://doi.org/} % If needed use \linebreak
+%\doinum{}
+%\pdfoutput=1 % Uncommented for upload to arXiv.org
+%\CorrStatement{yes}  % For updates
+
+
+%=================================================================
+% Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, float, amsmath, amssymb, lineno, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, colortbl, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, array, tabularx, pbox, ragged2e, tocloft, marginnote, marginfix, enotez, amsthm, natbib, hyperref, cleveref, scrextend, url, geometry, newfloat, caption, draftwatermark, seqsplit
+% cleveref: load \crefname definitions after \begin{document}
+
+%=================================================================
+% Please use the following mathematics environments: Theorem, Lemma, Corollary, Proposition, Characterization, Property, Problem, Example, ExamplesandDefinitions, Hypothesis, Remark, Definition, Notation, Assumption
+%% For proofs, please use the proof environment (the amsthm package is loaded by the MDPI class).
+
+%=================================================================
+% Full title of the paper (Capitalized)
+\Title{Simulación CFD y Validación de Modelo Experimental de Ventilación Minera a Escala Laboratorio en Flujos Cercanos al Venitilador}
+
+% MDPI internal command: Title for citation in the left column
+\TitleCitation{Simulación CFD y Validación de Modelo Experimental de Ventilación Minera a Escala Laboratorio en Flujos Cercanos al Venitilador}
+
+% Author Orchid ID: enter ID or remove command
+\newcommand{\orcidauthorA}{0000-0000-0000-000X} % Add \orcidA{} behind the author's name
+%\newcommand{\orcidauthorB}{0000-0000-0000-000X} % Add \orcidB{} behind the author's name
+
+% Authors, for the paper (add full first names)
+\Author{Diego Concha $^{1,\dagger,\ddagger}$\orcidA{}, Michel Miranda $^{2,\ddagger}$ y Sabastián Pérez $^{2,}$*}
+
+%\longauthorlist{yes}
+
+% MDPI internal command: Authors, for metadata in PDF
+\AuthorNames{Diego Concha, Michael Miranda and Sebastián Pérez}
+
+% MDPI internal command: Authors, for citation in the left column
+\AuthorCitation{Concha, D.; Miranda, M.; Pérez, S.}
+% If this is a Chicago style journal: Lastname, Firstname, Firstname Lastname, and Firstname Lastname.
+
+% Affiliations / Addresses (Add [1] after \address if there is only one affiliation.)
+\address{%
+$^{1}$ \quad Universidad de Santiago de Chile; diego.concha.a@usach.cl\\
+$^{2}$ \quad Universidad de Santiago de Chile; michael.miranda.s@usach.cl\\
+$^{3}$ \quad Universidad de Santiago de Chile; sebastian.perez@usach.cl}
+
+% Contact information of the corresponding author
+\corres{Correspondence: e-mail@e-mail.com; Tel.: (optional; include country code; if there are multiple corresponding authors, add author initials) +xx-xxxx-xxx-xxxx (F.L.)}
+
+% Current address and/or shared authorship
+\firstnote{Current address: Affiliation.}  % Current address should not be the same as any items in the Affiliation section.
+\secondnote{These authors contributed equally to this work.}
+% The commands \thirdnote{} till \eighthnote{} are available for further notes
+
+%\simplesumm{} % Simple summary
+
+%\conference{} % An extended version of a conference paper
+
+% Abstract (Do not insert blank lines, i.e. \\) 
+\abstract{El propósito central de este proyecto es crear un modelo digital que se aproxime 
+al funcionamiento de los ventiladores utilizados en la minería. Este modelo se fundamentará 
+en parámetros operativos clave que son determinantes en la eficiencia y seguridad de estos 
+equipos. La simulación se llevará a cabo utilizando software especializado como ANSYS, 
+un software de simulación de ingeniería que permita analizar el comportamiento de los 
+componentes bajo diferentes escenarios operativos y predecir posibles fallos antes de que ocurran.
+La simulación tiene como objetivo ser utilizada para mejorar las prácticas de 
+mantenimiento predictivo, por ejemplo, la generación de modelos de machine learning. 
+Esto significa que, en lugar de realizar mantenimientos a intervalos regulares o esperar 
+a que se presenten fallos, el mantenimiento se puede planificar basándose en las 
+predicciones del modelo, lo cual puede resultar en una reducción significativa de tiempos 
+muertos y costos de operación, además de aumentar la seguridad en las minas.}
+
+% Keywords
+\keyword{Simulación; Ventilador; Mantenimiento; Predictivo; Machine Learning.} 
+
+% The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
+%\PACS{J0101}
+%\MSC{}
+%\JEL{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Diversity
+%\LSID{\url{http://}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Applied Sciences
+%\featuredapplication{Authors are encouraged to provide a concise description of the specific application or a potential application of the work. This section is not mandatory.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Data
+%\dataset{DOI number or link to the deposited data set if the data set is published separately. If the data set shall be published as a supplement to this paper, this field will be filled by the journal editors. In this case, please submit the data set as a supplement.}
+%\datasetlicense{License under which the data set is made available (CC0, CC-BY, CC-BY-SA, CC-BY-NC, etc.)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Toxins
+%\keycontribution{The breakthroughs or highlights of the manuscript. Authors can write one or two sentences to describe the most important part of the paper.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Encyclopedia
+%\encyclopediadef{For entry manuscripts only: please provide a brief overview of the entry title instead of an abstract.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Advances in Respiratory Medicine and Smart Cities
+%\addhighlights{yes}
+%\renewcommand{\addhighlights}{%
+
+%\noindent This is an obligatory section in “Advances in Respiratory Medicine'' and ``Smart Cities”, whose goal is to increase the discoverability and readability of the article via search engines and other scholars. Highlights should not be a copy of the abstract, but a simple text allowing the reader to quickly and simplified find out what the article is about and what can be cited from it. Each of these parts should be devoted up to 2~bullet points.\vspace{3pt}\\
+%\textbf{What are the main findings?}
+% \begin{itemize}[labelsep=2.5mm,topsep=-3pt]
+% \item First bullet.
+% \item Second bullet.
+% \end{itemize}\vspace{3pt}
+%\textbf{What is the implication of the main finding?}
+% \begin{itemize}[labelsep=2.5mm,topsep=-3pt]
+% \item First bullet.
+% \item Second bullet.
+% \end{itemize}
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\section{Introducción}
+%\subsection{Contexto y Motivación}
+%Explica la importancia del ventilador en la minería y la necesidad de modelar su comportamiento para mejorar la eficiencia y seguridad. Creación de modelo referencial para detección de anomalías en parámetros operativos.
+%
+%\subsection{Objetivo del Estudio}
+%Aproximarse al modelamiento de un ventilador axial minero usando un modelo a escala y simulaciones.
+%
+%\subsection{Estructura del Paper}
+%Breve descripción de cómo está organizado el documento.
+%
+%\section{Revisión de la Literatura}
+%\subsection{Ventiladores Mineros}
+%Presenta estudios previos sobre el funcionamiento y modelado de ventiladores en minería.
+%
+%\subsection{Modelos a Escala}
+%Discute la validez y los desafíos de usar modelos a escala reducida para simular sistemas más grandes.
+%
+%\subsection{Uso de Sensores y Simulaciones}
+%Revisión de tecnologías y métodos utilizados en la medición y simulación de vibraciones, temperatura y flujo de aire.
+%
+\section{Metodología}
+%\subsection{Construcción del Modelo a Escala}
+%\subsubsection{Materiales y Equipos}
+%Descripción de los materiales y equipos utilizados (ventiladores de PC, sensores, etc.).
+%
+%\subsubsection{Diseño y Ensamblaje}
+%Detalles sobre el diseño y ensamblaje del modelo.
+
+\subsection{Instrumentación y Sensores}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsubsection{Sensores Utilizados}
+%Explicación de los sensores de vibración, temperatura y velocidad del viento utilizados.
+
+\subsection{Especificaciones Técnicas de los Sensores Utilizados}
+
+La selección de sensores se realizó considerando la necesidad de medir parámetros clave del modelo experimental, como vibraciones, flujo de viento y termografía. A continuación, se detallan las especificaciones técnicas de cada sensor y su justificación para este estudio:
+
+\subsubsection{Medida de Corriente ACS712}
+\begin{itemize}
+    \item \textbf{Rango de medida:} ±5 A, ±20 A, o ±30 A (dependiendo de la versión).
+    \item \textbf{Precisión:} ±1.5\% (típico).
+    \item \textbf{Voltaje de salida:} Proporcional a la corriente detectada, con 185 mV/A para la versión de ±5 A.
+    \item \textbf{Frecuencia de respuesta:} 80 kHz.
+    \item \textbf{Alimentación:} 5V DC.
+\end{itemize}
+\textbf{Justificación:} Permite medir el consumo eléctrico del ventilador, un indicador del esfuerzo operativo. Esto es clave para correlacionar el rendimiento mecánico con el consumo energético durante variaciones en el flujo de aire o vibraciones.
+
+\subsubsection{Sensor de Voltaje PWM Indirecta Modulada a 12V}
+\begin{itemize}
+    \item \textbf{Rango de medida:} 0-25 V.
+    \item \textbf{Precisión:} ±1\%.
+    \item \textbf{Frecuencia de muestreo:} Adaptado a señales PWM con modulaciones de hasta 20 kHz.
+\end{itemize}
+\textbf{Justificación:} Se utiliza para monitorear el voltaje aplicado al ventilador y analizar el impacto de variaciones de potencia en el comportamiento vibratorio y térmico. Su capacidad de medir señales PWM permite evaluar el control del ventilador.
+
+\subsubsection{Sensor de Temperatura Puntual LM35}
+\begin{itemize}
+    \item \textbf{Rango de medida:} -55 °C a +150 °C.
+    \item \textbf{Precisión:} ±0.5 °C a temperatura ambiente.
+    \item \textbf{Voltaje de salida:} Proporcional a la temperatura (10 mV/°C).
+    \item \textbf{Tiempo de respuesta:} Menos de 1 segundo para cambios de temperatura.
+    \item \textbf{Alimentación:} 4-20 V DC.
+\end{itemize}
+\textbf{Justificación:} Ideal para medir temperaturas en puntos específicos del ventilador, como el motor o áreas críticas, permitiendo correlacionar el comportamiento térmico con el flujo de aire y las vibraciones.
+
+\subsubsection{Cámara Térmica AMG8833}
+\begin{itemize}
+    \item \textbf{Resolución térmica:} 8x8 píxeles (64 puntos de lectura).
+    \item \textbf{Rango de temperatura:} 0 °C a 80 °C.
+    \item \textbf{Precisión:} ±2.5 °C.
+    \item \textbf{Frecuencia de actualización:} 10 FPS.
+    \item \textbf{Campo de visión:} 60° x 60°.
+\end{itemize}
+\textbf{Justificación:} Permite obtener un mapa térmico del ventilador durante la operación, identificando puntos calientes que pueden correlacionarse con anomalías en el flujo de aire o vibraciones. Esto es crucial para validar simulaciones térmicas.
+
+\subsubsection{Acelerómetro MPU6050}
+\begin{itemize}
+    \item \textbf{Rango de medida (aceleración):} ±2 g, ±4 g, ±8 g, ±16 g.
+    \item \textbf{Rango de medida (giroscopio):} ±250°/s a ±2000°/s.
+    \item \textbf{Precisión:} 16 bits por eje (aceleración) y 16 bits por eje (rotación).
+    \item \textbf{Frecuencia de muestreo:} Hasta 1 kHz.
+    \item \textbf{Alimentación:} 3.3 V a 5 V DC.
+\end{itemize}
+\textbf{Justificación:} Se utiliza para capturar datos vibratorios del ventilador en operación. Esto es esencial para analizar desequilibrios y validar modelos de vibración simulados.
+
+\subsubsection{Sensor de Flujo de Aire Indirecto (Anemómetro Fabricado y Calibrado Hasta 3.5V)}
+\begin{itemize}
+    \item \textbf{Rango de flujo:} 0-10 m/s.
+    \item \textbf{Voltaje de salida:} 0-3.5 V, proporcional al flujo de aire.
+    \item \textbf{Precisión:} ±5\%.
+    \item \textbf{Método de calibración:} Comparación con un anemómetro comercial.
+\end{itemize}
+\textbf{Justificación:} Mide el flujo de aire generado por el ventilador. La calibración asegura una relación lineal precisa entre el flujo y la señal de salida, permitiendo validar simulaciones de flujo aerodinámico.
+
+\subsection{Validez en la Elaboración del Modelo Experimental}
+\begin{itemize}
+    \item \textbf{Datos operativos representativos:} Los sensores seleccionados capturan las variables críticas necesarias para analizar el rendimiento y las anomalías operativas del ventilador.
+    \item \textbf{Compatibilidad con simulaciones:} Los datos obtenidos (corriente, voltaje, temperatura, vibración y flujo de aire) son adecuados para compararlos con simulaciones CFD y análisis térmicos y estructurales.
+    \item \textbf{Escalabilidad:} Las mediciones pueden extrapolarse para validar modelos de ventiladores mineros reales, justificando su utilidad para aplicaciones de mantenimiento predictivo.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Instalación y Calibración}
+Método de instalación y calibración.
+
+\subsection{Simulación Computacional}
+\subsubsection{Herramientas y Software}
+Herramientas y software utilizados para las simulaciones (por ejemplo, CFD - Computational Fluid Dynamics).
+
+\subsubsection{Condiciones de Contorno}
+Parámetros y condiciones de contorno definidos para la simulación.
+
+\subsubsection{Análisis de Sensibilidad de Malla}
+Discusión sobre el análisis de sensibilidad de malla.
+
+\subsection{Modelo Analítico}
+\subsubsection{Análisis de Vibraciones}
+Análisis de vibraciones en base a datos de presión.
+
+\subsubsection{Comparación Empírica}
+Comparación con datos empíricos (Métricas de evaluación).
+
+\subsection{Procedimiento Experimental}
+\subsubsection{Pasos Experimentales}
+Pasos seguidos durante la experimentación y simulación.
+
+\subsubsection{Recopilación y Análisis de Datos}
+Recopilación de datos y procedimientos de análisis.
+
+\section{Resultados}
+\subsection{Datos Experimentales}
+\subsubsection{Presentación de Datos}
+Presentación de los datos recopilados de los sensores.
+
+\subsubsection{Análisis Preliminar}
+Análisis preliminar de los datos.
+
+\subsection{Resultados de Simulación}
+\subsubsection{Comparación de Resultados}
+Comparación de los resultados de simulación con los datos experimentales.
+
+\subsubsection{Discusión de Precisión}
+Discusión sobre la precisión y validez del modelo.
+
+\section{Discusión}
+\subsection{Interpretación de Resultados}
+\subsubsection{Robustez del Modelo}
+Robustez y eficiencia del modelo CFD (Sensibilidad y uso de recurso computacional).
+
+\subsubsection{Análisis de Métricas}
+Métricas de evaluación obtenidas, análisis.
+
+\subsection{Validación del Sistema}
+Error entre modelos.
+
+\subsection{Limitaciones del Estudio}
+Discusión sobre las limitaciones encontradas en el uso de ventiladores de PC y la escala del modelo.
+
+\section{Conclusiones}
+\subsection{Recapitulación}
+\subsection{Síntesis de los Hallazgos}
+Resumen de los resultados clave.
+
+\subsection{Analogía de Modelos e Implicaciones Prácticas}
+Comparación entre el modelo a escala y las expectativas del comportamiento de un ventilador minero real.
+
+\subsection{Futuras Investigaciones}
+Propuestas de cómo este estudio podría ser expandido o mejorado.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{6pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% optional
+%\supplementary{The following supporting information can be downloaded at:  \linksupplementary{s1}, Figure S1: title; Table S1: title; Video S1: title.}
+
+% Only for journal Methods and Protocols:
+% If you wish to submit a video article, please do so with any other supplementary material.
+% \supplementary{The following supporting information can be downloaded at: \linksupplementary{s1}, Figure S1: title; Table S1: title; Video S1: title. A supporting video article is available at doi: link.}
+
+% Only for journal Hardware:
+% If you wish to submit a video article, please do so with any other supplementary material.
+% \supplementary{The following supporting information can be downloaded at: \linksupplementary{s1}, Figure S1: title; Table S1: title; Video S1: title.\vspace{6pt}\\
+%\begin{tabularx}{\textwidth}{lll}
+%\toprule
+%\textbf{Name} & \textbf{Type} & \textbf{Description} \\
+%\midrule
+%S1 & Python script (.py) & Script of python source code used in XX \\
+%S2 & Text (.txt) & Script of modelling code used to make Figure X \\
+%S3 & Text (.txt) & Raw data from experiment X \\
+%S4 & Video (.mp4) & Video demonstrating the hardware in use \\
+%... & ... & ... \\
+%\bottomrule
+%\end{tabularx}
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\authorcontributions{For research articles with several authors, a short paragraph specifying their individual contributions must be provided. The following statements should be used ``Conceptualization, X.X. and Y.Y.; methodology, X.X.; software, X.X.; validation, X.X., Y.Y. and Z.Z.; formal analysis, X.X.; investigation, X.X.; resources, X.X.; data curation, X.X.; writing---original draft preparation, X.X.; writing---review and editing, X.X.; visualization, X.X.; supervision, X.X.; project administration, X.X.; funding acquisition, Y.Y. All authors have read and agreed to the published version of the manuscript.'', please turn to the  \href{http://img.mdpi.org/data/contributor-role-instruction.pdf}{CRediT taxonomy} for the term explanation. Authorship must be limited to those who have contributed substantially to the work~reported.}
+
+\funding{Please add: ``This research received no external funding'' or ``This research was funded by NAME OF FUNDER grant number XXX.'' and  and ``The APC was funded by XXX''. Check carefully that the details given are accurate and use the standard spelling of funding agency names at \url{https://search.crossref.org/funding}, any errors may affect your future funding.}
+
+\institutionalreview{In this section, you should add the Institutional Review Board Statement and approval number, if relevant to your study. You might choose to exclude this statement if the study did not require ethical approval. Please note that the Editorial Office might ask you for further information. Please add “The study was conducted in accordance with the Declaration of Helsinki, and approved by the Institutional Review Board (or Ethics Committee) of NAME OF INSTITUTE (protocol code XXX and date of approval).” for studies involving humans. OR “The animal study protocol was approved by the Institutional Review Board (or Ethics Committee) of NAME OF INSTITUTE (protocol code XXX and date of approval).” for studies involving animals. OR “Ethical review and approval were waived for this study due to REASON (please provide a detailed justification).” OR “Not applicable” for studies not involving humans or animals.}
+
+\informedconsent{Any research article describing a study involving humans should contain this statement. Please add ``Informed consent was obtained from all subjects involved in the study.'' OR ``Patient consent was waived due to REASON (please provide a detailed justification).'' OR ``Not applicable'' for studies not involving humans. You might also choose to exclude this statement if the study did not involve humans.
+
+Written informed consent for publication must be obtained from participating patients who can be identified (including by the patients themselves). Please state ``Written informed consent has been obtained from the patient(s) to publish this paper'' if applicable.}
+
+\dataavailability{We encourage all authors of articles published in MDPI journals to share their research data. In this section, please provide details regarding where data supporting reported results can be found, including links to publicly archived datasets analyzed or generated during the study. Where no new data were created, or where data is unavailable due to privacy or ethical restrictions, a statement is still required. Suggested Data Availability Statements are available in section ``MDPI Research Data Policies'' at \url{https://www.mdpi.com/ethics}.} 
+
+% Only for journal Nursing Reports
+%\publicinvolvement{Please describe how the public (patients, consumers, carers) were involved in the research. Consider reporting against the GRIPP2 (Guidance for Reporting Involvement of Patients and the Public) checklist. If the public were not involved in any aspect of the research add: ``No public involvement in any aspect of this research''.}
+
+% Only for journal Nursing Reports
+%\guidelinesstandards{Please add a statement indicating which reporting guideline was used when drafting the report. For example, ``This manuscript was drafted against the XXX (the full name of reporting guidelines and citation) for XXX (type of research) research''. A complete list of reporting guidelines can be accessed via the equator network: \url{https://www.equator-network.org/}.}
+
+% Only for journal Nursing Reports
+%\useofartificialintelligence{Please describe in detail any and all uses of artificial intelligence (AI) or AI-assisted tools used in the preparation of the manuscript. This may include, but is not limited to, language translation, language editing and grammar, or generating text. Alternatively, please state that “AI or AI-assisted tools were not used in drafting any aspect of this manuscript”.}
+
+\acknowledgments{In this section you can acknowledge any support given which is not covered by the author contribution or funding sections. This may include administrative and technical support, or donations in kind (e.g., materials used for experiments).}
+
+\conflictsofinterest{Declare conflicts of interest or state ``The authors declare no conflicts of interest.'' Authors must identify and declare any personal circumstances or interest that may be perceived as inappropriately influencing the representation or interpretation of reported research results. Any role of the funders in the design of the study; in the collection, analyses or interpretation of data; in the writing of the manuscript; or in the decision to publish the results must be declared in this section. If there is no role, please state ``The funders had no role in the design of the study; in the collection, analyses, or interpretation of data; in the writing of the manuscript; or in the decision to publish the results''.} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Optional
+
+%% Only for journal Encyclopedia
+%\entrylink{The Link to this entry published on the encyclopedia platform.}
+
+\abbreviations{Abbreviations}{
+The following abbreviations are used in this manuscript:\\
+
+\noindent 
+\begin{tabular}{@{}ll}
+MDPI & Multidisciplinary Digital Publishing Institute\\
+DOAJ & Directory of open access journals\\
+TLA & Three letter acronym\\
+LD & Linear dichroism
+\end{tabular}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Optional
+\appendixtitles{no} % Leave argument "no" if all appendix headings stay EMPTY (then no dot is printed after "Appendix A"). If the appendix sections contain a heading then change the argument to "yes".
+\appendixstart
+\appendix
+\section[\appendixname~\thesection]{}
+\subsection[\appendixname~\thesubsection]{}
+The appendix is an optional section that can contain details and data supplemental to the main text---for example, explanations of experimental details that would disrupt the flow of the main text but nonetheless remain crucial to understanding and reproducing the research shown; figures of replicates for experiments of which representative data are shown in the main text can be added here if brief, or as Supplementary Data. Mathematical proofs of results not central to the paper can be added as an appendix.
+
+\begin{table}[H] 
+\caption{This is a table caption.\label{tab5}}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\begin{tabularx}{\textwidth}{CCC}
+\toprule
+\textbf{Title 1}	& \textbf{Title 2}	& \textbf{Title 3}\\
+\midrule
+Entry 1		& Data			& Data\\
+Entry 2		& Data			& Data\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section[\appendixname~\thesection]{}
+All appendix sections must be cited in the main text. In the appendices, Figures, Tables, etc. should be labeled, starting with ``A''---e.g., Figure A1, Figure A2, etc.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{adjustwidth}{-\extralength}{0cm}
+%\printendnotes[custom] % Un-comment to print a list of endnotes
+
+\reftitle{References}
+
+% Please provide either the correct journal abbreviation (e.g. according to the “List of Title Word Abbreviations” http://www.issn.org/services/online-services/access-to-the-ltwa/) or the full name of the journal.
+% Citations and References in Supplementary files are permitted provided that they also appear in the reference list here. 
+
+%=====================================
+% References, variant A: external bibliography
+%=====================================
+%\bibliography{your_external_BibTeX_file}
+
+%=====================================
+% References, variant B: internal bibliography
+%=====================================
+\begin{thebibliography}{999}
+% Reference 1
+\bibitem[Author1(year)]{ref-journal}
+Author~1, T. The title of the cited article. {\em Journal Abbreviation} {\bf 2008}, {\em 10}, 142--149.
+% Reference 2
+\bibitem[Author2(year)]{ref-book1}
+Author~2, L. The title of the cited contribution. In {\em The Book Title}; Editor 1, F., Editor 2, A., Eds.; Publishing House: City, Country, 2007; pp. 32--58.
+% Reference 3
+\bibitem[Author3(year)]{ref-book2}
+Author 1, A.; Author 2, B. \textit{Book Title}, 3rd ed.; Publisher: Publisher Location, Country, 2008; pp. 154--196.
+% Reference 4
+\bibitem[Author4(year)]{ref-unpublish}
+Author 1, A.B.; Author 2, C. Title of Unpublished Work. \textit{Abbreviated Journal Name} year, \textit{phrase indicating stage of publication (submitted; accepted; in press)}.
+% Reference 5
+\bibitem[Author5(year)]{ref-communication}
+Author 1, A.B. (University, City, State, Country); Author 2, C. (Institute, City, State, Country). Personal communication, 2012.
+% Reference 6
+\bibitem[Author6(year)]{ref-proceeding}
+Author 1, A.B.; Author 2, C.D.; Author 3, E.F. Title of presentation. In Proceedings of the Name of the Conference, Location of Conference, Country, Date of Conference (Day Month Year); Abstract Number (optional), Pagination (optional).
+% Reference 7
+\bibitem[Author7(year)]{ref-thesis}
+Author 1, A.B. Title of Thesis. Level of Thesis, Degree-Granting University, Location of University, Date of Completion.
+% Reference 8
+\bibitem[Author8(year)]{ref-url}
+Title of Site. Available online: URL (accessed on Day Month Year).
+\end{thebibliography}
+
+% If authors have biography, please use the format below
+%\section*{Short Biography of Authors}
+%\bio
+%{\raisebox{-0.35cm}{\includegraphics[width=3.5cm,height=5.3cm,clip,keepaspectratio]{Definitions/author1.pdf}}}
+%{\textbf{Firstname Lastname} Biography of first author}
+%
+%\bio
+%{\raisebox{-0.35cm}{\includegraphics[width=3.5cm,height=5.3cm,clip,keepaspectratio]{Definitions/author2.jpg}}}
+%{\textbf{Firstname Lastname} Biography of second author}
+
+% For the MDPI journals use author-date citation, please follow the formatting guidelines on http://www.mdpi.com/authors/references
+% To cite two works by the same author: \citeauthor{ref-journal-1a} (\citeyear{ref-journal-1a}, \citeyear{ref-journal-1b}). This produces: Whittaker (1967, 1975)
+% To cite two works by the same author with specific pages: \citeauthor{ref-journal-3a} (\citeyear{ref-journal-3a}, p. 328; \citeyear{ref-journal-3b}, p.475). This produces: Wong (1999, p. 328; 2000, p. 475)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% for journal Sci
+%\reviewreports{\\
+%Reviewer 1 comments and authors’ response\\
+%Reviewer 2 comments and authors’ response\\
+%Reviewer 3 comments and authors’ response
+%}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\PublishersNote{}
+\end{adjustwidth}
+\end{document}
+

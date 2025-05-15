@@ -1,0 +1,156 @@
+\documentclass{auxiliares/umemoria} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% INFORMACIÓN DE PORTADA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\depto{Departamento de Ingeniería Mecánica} % Nombre del Departamento
+\author{Diego Andrés Concha Araya} % Nombre del autor
+\title{Simulación de parámetros operativos de{\vspace{1.5ex}\break}ventilador minero para aplicaciones en{\vspace{1.5ex}\break}mantenimiento predictivo basado en machine learning}  % Ajustar título a gusto con {\vspace{1.5ex}\break}
+%\bajadatitulo{Entrega 16/03/2025} % Bajada de titulo (eliminar al enviar a biblioteca)
+\titulopdf{Tesis Diego Concha}  % Nombre Asignado al PDF
+\tesis{Ingeniero Civil en Mecánica} % Grado al que opta
+\guia{Michael Miranda Sandoval}   % Profesor guía 
+\anho{2024}     % Año en que se da el examen de título/grado (defensa) o ultima matricula de pregrado
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Lugar donde se encuentra la bibliografía
+\addbibresource{library.bib}
+% Hints: formulas que se repiten como notaciones de vectores que son muy extensas de escribir en cada apartado
+\input{auxiliares/hints} 
+
+    %PÁGINAS PRELIMINARES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%(1) PORTADA 			
+%(2) DERECHOS DE AUTOR 		
+%(3) RESUMEN Y ABSTRACT 	
+%(4) DEDICATORIA(OPTATIVA)
+%(5) AGRADECIMIENTOS(OPTATIVA)	
+%(6) TABLA DE CONTENIDOS
+%(7) ÍNDICE DE TABLAS	
+%(8) ÍNDICE DE ILUSTRACIONES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% %%deja la pagina del apéndice sin numero
+\let\plainappendixpage\appendixpage
+ \makeatletter
+ \renewcommand{\appendixpage}{%
+  \begingroup
+  \let\ps@plain\ps@empty
+  \plainappendixpage
+  \endgroup}
+\makeatother
+
+%Comandos para apéndice
+\renewcommand{\appendixname}{Ap\'endice}
+\renewcommand{\appendixtocname}{Ap\'endices y anexos}
+\renewcommand{\appendixpagename}{AP\'ENDICES Y ANEXOS}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% INICIO PAGINAS PRELIMINARES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\onehalfspacing
+\frontmatter
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Derechos de autor / omitir cuando se envía a biblioteca
+%\begin{derechoautor}
+%\copyright \,Diego Concha Araya, 2025.\\
+%\textbf{Todos los derechos reservados. Chile.}
+%\end{derechoautor}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Resumen breve
+\begin{resumen}
+
+  El objetivo principal de este trabajo es desarrollar un modelo a escala de un túnel de viento análogo a un sistema de ventilación minera, incorporando un controlador programado en Arduino para regular la velocidad del ventilador y realizar la adquisición de datos. Con dichos datos, se construye un modelo de Dinámica de Fluidos Computacional (CFD) con el fin de estudiar el flujo de aire y predecir comportamientos operativos bajo distintas condiciones.
+
+  La validación del modelo se efectúa comparando las velocidades de viento medidas con sensores calibrados frente a los valores teóricos de la simulación a diferentes velocidades de giro (RPM) del ventilador. Este enfoque tiene como finalidad proveer una plataforma experimental y computacional que contribuya a optimizar el rendimiento de sistemas de ventilación, así como a plantear futuros esquemas de mantenimiento predictivo y automatización basados en la correlación entre datos reales y simulaciones.
+\end{resumen}
+
+\vfill
+\noindent\textbf{Palabras claves: } Túnel de viento, Ventilación minera, Simulación CFD, Arduino, Mantenimiento predictivo, Validación experimental.  % cada palabra comienza con mayúscula separadas por coma.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Abstract
+\begin{abstract}
+  The main objective of this study is to develop a scaled wind tunnel model analogous to a mining ventilation system, integrating an Arduino-based controller for fan speed regulation and data acquisition. These data are then used to build a Computational Fluid Dynamics (CFD) model aimed at analyzing airflow and predicting operational behavior under various conditions.
+
+  Model validation is carried out by comparing wind velocities measured by calibrated sensors against theoretical simulation values at different fan speeds (RPM). This approach provides both an experimental and computational platform to optimize ventilation system performance and to propose future predictive maintenance and automation strategies based on the correlation between real data and simulations.\\
+
+\end{abstract}
+\vfill
+\noindent\textbf{Keywords: } Wind tunnel, Mining ventilation, CFD simulation, Arduino, Predictive maintenance, Experimental validation.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Dedicatoria corta o frase inspiradora, poema, etc.
+
+\begin{dedicatoria}
+``A mi pequeña familia,
+por ser raíz, abrigo y fuerza en cada paso.
+
+A quienes, con su ejemplo y palabra,
+me mostraron el verdadero significado del esfuerzo y la dedicación.
+
+Y en especial, a mi tío Edward Araya,
+que con su memoria viva me enseñó
+que el ingenio no solo está en las ideas,
+sino en el corazón que las impulsa.''
+\end{dedicatoria}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Agradecimientos
+
+\begin{thanks}
+\input{Capitulos/i_agradecimientos}
+\end{thanks}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cleardoublepage
+% INDICE
+
+\phantomsection
+\tableofcontents % índice general
+\addcontentsline{toc}{chapter}{Tabla de Contenido}
+\listoftables % índice de tablas
+\addcontentsline{toc}{chapter}{Índice de Tablas}
+\listoffigures % índice de figuras
+\addcontentsline{toc}{chapter}{Índice de Figuras}
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FIN PAGINAS PRELIMINARES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mainmatter
+\input{Capitulos/a_introduccion}
+\input{Capitulos/b_estado_del_arte}
+\input{Capitulos/b_marco_teorico}
+\input{Capitulos/c_metodologia}
+\input{Capitulos/d_resultados}
+\input{Capitulos/e_discusion}
+\input{Capitulos/f_conclusion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%  BIBLIOGRAFÍA %%%
+
+\singlespacing
+\backmatter
+\phantomsection  % para ajustar el hyperref
+\def\thispagestyle#1{}
+\addcontentsline{toc}{chapter}{Bibliografía}
+\addtocontents{bibliography}{\protect\thispagestyle{fancy}} %forzar fancy en table of contents Lof.
+\addtocontents{bibliography} %forzar fancy en table of contents Lof.
+\makeatother
+\makeatletter
+
+\printbibliography
+
+%%% APÉNDICES Y ANEXOS  %%%%%%%%%%%
+\mainmatter %%% empieza la numeración para los apéndices
+\appendix   %%% preámbulo para que aparezcan apéndices
+\clearpage
+\noappendicestocpagenum
+\addappheadtotoc   %%los apéndices se separan del resto en el indice
+\appendixpage
+
+%\include{Apendices y anexos/apendices} % APÉNDICES
+\include{Apendices y anexos/anexos} % ANEXOS
+
+\end{document}

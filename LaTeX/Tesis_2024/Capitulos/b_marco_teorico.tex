@@ -1,0 +1,342 @@
+\chapter{Marco Teórico}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fundamentos de la Ventilación en Minería}
+
+\subsection{Principios de la Ventilación en Minería Subterránea}
+
+La ventilación en minería subterránea es esencial para proporcionar un ambiente seguro y saludable para los trabajadores, así como para mantener la eficiencia operativa. Los principios básicos de la ventilación subterránea se centran en asegurar un suministro constante de aire fresco, la dilución y eliminación de contaminantes, y el control de las condiciones térmicas dentro de la mina \cite{mcpherson1993subsurface}. 
+
+El sistema de ventilación debe ser capaz de distribuir el aire de manera efectiva a todas las áreas de la mina, incluyendo aquellas más alejadas de la entrada de aire. Para ello, se utilizan ventiladores principales para impulsar el aire a través de la red de túneles y ventiladores secundarios para asegurar la ventilación en zonas específicas. Los principios fundamentales de la ventilación subterránea incluyen la Ley de Conservación de Masa, que asegura que el flujo de aire se mantenga constante en todo el sistema, y la Ley de Conservación de Energía, que considera las pérdidas de presión debidas a la fricción y la resistencia en los túneles \cite{hartman1997mine}.
+
+Otro principio clave es la dilución de contaminantes. En operaciones mineras, es común la generación de gases tóxicos como monóxido de carbono (CO), dióxido de nitrógeno (NO2) y polvo de sílice. La ventilación subterránea debe ser capaz de diluir estos contaminantes a niveles seguros para la salud antes de su evacuación fuera de la mina \cite{brune2008mine}.
+
+\subsection{Tipos de Sistemas de Ventilación}
+
+Existen varios tipos de sistemas de ventilación que se emplean en minería subterránea, cada uno diseñado para cumplir con las necesidades específicas de diferentes operaciones y configuraciones de minas.
+
+\begin{itemize}
+    \item \textbf{Ventilación Directa:} Este es el sistema más básico, donde el aire fresco se introduce directamente desde la superficie a través de pozos de ventilación o túneles de acceso. Este sistema es eficiente en minas más pequeñas o menos complejas, pero puede no ser suficiente para operaciones de gran escala o con alta producción de contaminantes \cite{mutmansky2010ventilation}.
+
+    \item \textbf{Ventilación en Serie:} En este sistema, el aire pasa de un área de trabajo a otra en serie, utilizando ventiladores secundarios para mover el aire a lo largo de la mina. Este enfoque puede ser eficiente en términos de energía, pero requiere una cuidadosa planificación para evitar la acumulación de contaminantes a medida que el aire se desplaza por diferentes áreas \cite{mcpherson1993subsurface}.
+
+    \item \textbf{Ventilación de Recirculación:} En este sistema, una parte del aire ya utilizado se recircula de vuelta a la mina después de ser filtrado y acondicionado. Este método puede reducir significativamente los costos energéticos, pero también plantea riesgos si el aire recirculado no se limpia adecuadamente. Por esta razón, su uso está estrictamente regulado y generalmente limitado a ciertas situaciones \cite{mutmansky2010ventilation}.
+
+    \item \textbf{Ventilación Auxiliar:} Este tipo de ventilación se utiliza para proporcionar aire a áreas remotas o de difícil acceso dentro de la mina. Los ventiladores auxiliares se emplean para dirigir el aire a través de ductos hacia áreas específicas, como frentes de trabajo o túneles en desarrollo \cite{hartman1997mine}.
+\end{itemize}
+
+Cada tipo de sistema tiene sus propias ventajas y desventajas, y la selección del sistema adecuado depende de factores como la profundidad de la mina, la configuración de los túneles, la cantidad de contaminantes generados y las condiciones climáticas externas.
+
+\subsection{Parámetros Clave en la Ventilación}
+
+Para garantizar una ventilación efectiva en minas subterráneas, es crucial monitorear y controlar varios parámetros clave. Estos parámetros incluyen:
+
+\begin{itemize}
+    \item \textbf{Caudal de Aire:} El caudal de aire es uno de los parámetros más críticos en la ventilación subterránea. Se mide en metros cúbicos por segundo (m³/s) y determina la cantidad de aire fresco que se suministra a la mina. El caudal necesario depende del tamaño de la mina, la cantidad de trabajadores y las condiciones operativas \cite{mcpherson1993subsurface}.
+
+    \item \textbf{Presión:} La presión en el sistema de ventilación debe ser suficiente para superar las resistencias en los túneles y ductos. Las caídas de presión pueden reducir la eficiencia de la ventilación y aumentar el consumo de energía de los ventiladores. Por ello, es importante monitorear y ajustar la presión a lo largo de todo el sistema \cite{hartman1997mine}.
+
+    \item \textbf{Temperatura y Humedad:} La temperatura y la humedad del aire en la mina deben ser controladas para garantizar un ambiente de trabajo seguro y confortable. En minas profundas, donde las temperaturas tienden a ser elevadas, es crucial contar con sistemas de enfriamiento y humidificación adecuados \cite{brune2008mine}.
+
+    \item \textbf{Concentración de Contaminantes:} Monitorear la concentración de gases tóxicos y polvo en el aire es esencial para la seguridad de los trabajadores. Las normas internacionales establecen límites máximos permisibles para diferentes contaminantes, y los sistemas de ventilación deben ser capaces de mantener estos niveles dentro de los rangos seguros \cite{cline2011occupational}.
+\end{itemize}
+
+El control y optimización de estos parámetros no solo garantizan la seguridad en las operaciones mineras, sino que también contribuyen a la eficiencia energética y la reducción de costos operativos.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Teoría de la Dinámica de Fluidos (CFD)}
+
+\subsection{Ecuaciones Fundamentales de la Dinámica de Fluidos}
+
+La dinámica de fluidos computacional (CFD) es una herramienta esencial en la ingeniería para modelar y analizar el comportamiento de los fluidos en movimiento. Las ecuaciones fundamentales que rigen la dinámica de fluidos son las ecuaciones de Navier-Stokes, las cuales describen la conservación de la masa, la cantidad de movimiento y la energía en un fluido. Estas ecuaciones son no lineales y acopladas, lo que significa que las variables de velocidad, presión y temperatura están interrelacionadas de manera compleja \cite{white2006fluid}.
+
+Las ecuaciones de Navier-Stokes para un fluido incompresible se expresan de la siguiente manera:
+
+\[
+\frac{\partial \mathbf{u}}{\partial t} + (\mathbf{u} \cdot \nabla)\mathbf{u} = -\frac{1}{\rho} \nabla p + \nu \nabla^2 \mathbf{u} + \mathbf{f}
+\]
+
+\[
+\nabla \cdot \mathbf{u} = 0
+\]
+
+Donde:
+- \(\mathbf{u}\) es el vector de velocidad,
+- \(p\) es la presión,
+- \(\rho\) es la densidad del fluido,
+- \(\nu\) es la viscosidad cinemática,
+- \(\mathbf{f}\) representa las fuerzas externas.
+
+Además de las ecuaciones de Navier-Stokes, la ecuación de conservación de energía es crucial en la simulación de flujos térmicos y en situaciones donde la transferencia de calor juega un papel importante. Esta ecuación se basa en la primera ley de la termodinámica y describe cómo cambia la temperatura en el fluido a lo largo del tiempo \cite{incropera2007fundamentals}.
+
+La resolución de estas ecuaciones requiere técnicas numéricas avanzadas debido a su complejidad. Los métodos más comunes incluyen el método de los volúmenes finitos (FVM), el método de los elementos finitos (FEM) y el método de diferencias finitas (FDM), cada uno con sus propias ventajas y desventajas dependiendo del tipo de problema a resolver \cite{versteeg2007introduction}.
+
+\subsection{Modelos de Turbulencia}
+
+La turbulencia es un fenómeno complejo y no lineal que ocurre en la mayoría de los flujos de fluidos de interés práctico, incluyendo aquellos encontrados en ventiladores de minería. Modelar la turbulencia de manera precisa es uno de los desafíos más grandes en CFD. Dado que la resolución directa de todas las escalas de turbulencia (DNS) es computacionalmente prohibitiva para la mayoría de las aplicaciones industriales, se han desarrollado modelos de turbulencia para aproximar los efectos de la turbulencia en el flujo promedio \cite{wilcox2006turbulence}.
+
+Los modelos de turbulencia más comunes incluyen:
+
+\begin{itemize}
+    \item \textbf{Modelo k-$\epsilon$:} Este es uno de los modelos más utilizados en CFD para simular flujos turbulentos. El modelo k-$\epsilon$ utiliza dos ecuaciones adicionales para predecir la energía cinética turbulenta (k) y su tasa de disipación ($\epsilon$). Es adecuado para una amplia gama de aplicaciones, aunque puede tener limitaciones en flujos complejos con separaciones significativas \cite{launder1974application}.
+    
+    \item \textbf{Modelo k-$\omega$:} Similar al k-$\epsilon$, pero en lugar de la tasa de disipación, utiliza la frecuencia específica de disipación ($\omega$). Este modelo es particularmente efectivo en flujos cercanos a paredes y en zonas de alta velocidad de cizallamiento \cite{wilcox1998turbulence}.
+    
+    \item \textbf{Modelo de Grandes Vórtices (LES):} El modelo LES filtra las grandes estructuras turbulentas, resolviendo directamente las escalas grandes y modelando las pequeñas. Esto proporciona una mejor precisión en comparación con los modelos de turbulencia basados en ecuaciones de cierre, pero a un mayor costo computacional \cite{lesieur2005large}.
+    
+    \item \textbf{Simulación de Vórtices Directa (DNS):} Aunque DNS ofrece la mayor precisión, resolviendo todas las escalas de turbulencia sin ninguna aproximación, es impráctico para la mayoría de aplicaciones debido a sus enormes requerimientos de recursos computacionales \cite{moin1998direct}.
+\end{itemize}
+
+La elección del modelo de turbulencia depende de los requisitos de precisión, los recursos disponibles y las características del flujo a simular.
+
+\subsection{Aplicación de CFD en la Simulación de Ventiladores}
+
+La CFD se ha convertido en una herramienta indispensable en el diseño y optimización de ventiladores utilizados en minería. A través de simulaciones CFD, es posible analizar cómo el aire fluye a través de los ventiladores, evaluar la eficiencia del diseño y predecir el rendimiento bajo diferentes condiciones operativas \cite{versteeg2007introduction}.
+
+Una de las aplicaciones clave de CFD en la simulación de ventiladores es la optimización del diseño de las palas del ventilador. Al modelar el flujo de aire alrededor de las palas, los ingenieros pueden identificar áreas de alta resistencia o flujo recirculante, que pueden reducir la eficiencia del ventilador. Las simulaciones permiten ajustar la geometría de las palas para minimizar estos efectos adversos y maximizar el caudal de aire y la presión generada \cite{fletcher2012computational}.
+
+Otra aplicación importante es la simulación de condiciones extremas, como las altas temperaturas y presiones en minas profundas. CFD permite predecir cómo el ventilador responderá bajo estas condiciones, asegurando que el diseño sea robusto y confiable. Además, la CFD es útil para evaluar el impacto de la instalación del ventilador en el sistema de ventilación general de la mina, ayudando a optimizar la ubicación y configuración de los ventiladores para mejorar la eficiencia del sistema \cite{kuzmin2014cfd}.
+
+Finalmente, la CFD también se emplea en la simulación de fenómenos transitorios, como los arranques y paradas del ventilador, y en la identificación de vibraciones y resonancias que podrían comprometer la operación segura del ventilador. Estas simulaciones permiten prever problemas potenciales y adoptar medidas correctivas antes de la implementación física \cite{wilcox2006turbulence}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Mecánica de Sólidos y Transferencia de Calor}
+
+\subsection{Teoría de la Mecánica de Sólidos Aplicada a Ventiladores}
+
+La mecánica de sólidos es una rama fundamental de la ingeniería que se ocupa del comportamiento de los materiales bajo diferentes tipos de cargas. En el contexto de los ventiladores utilizados en minería, la mecánica de sólidos se aplica para garantizar que las palas del ventilador y otros componentes estructurales puedan soportar las tensiones y deformaciones generadas durante la operación. Las principales teorías que se utilizan incluyen la teoría de elasticidad, que describe cómo los materiales se deforman y regresan a su forma original después de ser sometidos a cargas, y la teoría de plasticidad, que se ocupa de los materiales que experimentan deformaciones permanentes \cite{beer2012mechanics}.
+
+En ventiladores, los componentes estructurales están sujetos a fuerzas centrífugas debido a la alta velocidad de rotación, así como a fuerzas aerodinámicas generadas por el flujo de aire a través de las palas. La teoría de elementos finitos (FEM) es una herramienta comúnmente utilizada para analizar estos efectos en ventiladores, permitiendo a los ingenieros modelar la distribución de tensiones y deformaciones en los componentes y optimizar su diseño para minimizar fallos estructurales \cite{zienkiewicz2005finite}. Además, se utilizan criterios de fallo como el criterio de von Mises para predecir la resistencia al colapso bajo cargas combinadas \cite{timoshenko1983history}.
+
+Otro aspecto importante en la mecánica de sólidos aplicada a ventiladores es la fatiga, que ocurre debido a la repetición de cargas cíclicas. Este fenómeno es crítico en ventiladores que operan continuamente en ambientes mineros exigentes. La predicción de la vida útil basada en la teoría de fatiga y el análisis de fractura permite diseñar ventiladores que puedan operar de manera segura durante largos periodos de tiempo sin fallos inesperados \cite{fuchs2014fatigue}.
+
+\subsection{Transferencia de Calor en Sistemas de Ventilación}
+
+La transferencia de calor es otro aspecto clave en la operación de ventiladores, especialmente en minas subterráneas donde las temperaturas pueden ser extremas. La transferencia de calor en ventiladores puede ocurrir a través de tres mecanismos principales: conducción, convección y radiación. La conducción se refiere al flujo de calor a través de los materiales sólidos del ventilador, mientras que la convección describe el intercambio de calor entre el aire en movimiento y las superficies del ventilador. La radiación, aunque generalmente menos significativa en ventiladores, puede ser relevante en situaciones de alta temperatura \cite{incropera2007fundamentals}.
+
+En el diseño de ventiladores, la convección forzada es el mecanismo dominante de transferencia de calor. Esto implica que el aire que pasa a través del ventilador no solo mueve masa, sino que también transfiere calor. En minas profundas, donde las temperaturas del aire pueden ser muy elevadas, es crucial que los ventiladores estén diseñados para disipar adecuadamente el calor y evitar sobrecalentamientos que puedan comprometer su funcionamiento \cite{kays2005convective}.
+
+El análisis térmico mediante métodos numéricos, como la dinámica de fluidos computacional (CFD) y el método de elementos finitos (FEM), es fundamental para predecir la distribución de temperaturas en el ventilador y en su entorno, y para asegurar que las temperaturas se mantengan dentro de límites seguros durante la operación \cite{zienkiewicz2005finite}.
+
+\subsection{Interacción Fluido-Estructura (FSI)}
+
+La interacción fluido-estructura (FSI, por sus siglas en inglés) es un fenómeno donde el comportamiento del fluido afecta la estructura y, a su vez, la estructura influye en el flujo del fluido. En ventiladores de minería, la FSI es un aspecto crítico, ya que las fuerzas aerodinámicas generadas por el flujo de aire pueden inducir vibraciones y deformaciones en las palas del ventilador, lo que a su vez puede alterar el flujo de aire \cite{bathe1996finite}.
+
+El análisis FSI combina los principios de la dinámica de fluidos y la mecánica de sólidos, y a menudo se realiza utilizando simulaciones numéricas que integran CFD con FEM. Estas simulaciones permiten predecir cómo los ventiladores se comportarán bajo diferentes condiciones de operación, considerando tanto los efectos del flujo de aire como las respuestas estructurales. El análisis FSI es particularmente importante en la identificación de problemas como el flutter, un fenómeno en el que las vibraciones inducidas por el flujo pueden llegar a niveles peligrosos y causar fallos estructurales \cite{bazilevs2013computational}.
+
+Además, la FSI es crucial para el diseño de ventiladores eficientes y seguros, ya que permite optimizar la forma y los materiales de las palas para minimizar las vibraciones y maximizar el rendimiento aerodinámico. Las simulaciones FSI son una herramienta poderosa en el diseño de ventiladores que pueden operar de manera confiable en las condiciones extremas de la minería subterránea \cite{ferziger2012computational}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Modelos Matemáticos para Simulación en Ingeniería}
+
+\subsection{Formulación de Modelos Matemáticos}
+
+La formulación de modelos matemáticos en ingeniería es un proceso fundamental que permite representar fenómenos físicos y sistemas complejos a través de ecuaciones matemáticas. Estos modelos se construyen a partir de principios básicos como la conservación de la masa, la cantidad de movimiento, la energía y la entropía, y se utilizan para predecir el comportamiento de sistemas bajo diversas condiciones operativas \cite{zienkiewicz2005finite}.
+
+En la simulación de sistemas de ingeniería, los modelos matemáticos suelen incluir ecuaciones diferenciales ordinarias (ODEs) y parciales (PDEs) que describen la dinámica del sistema. Por ejemplo, las ecuaciones de Navier-Stokes para la dinámica de fluidos, las ecuaciones de Maxwell para el electromagnetismo, y las ecuaciones de la elasticidad para la mecánica de sólidos son ejemplos comunes de formulaciones matemáticas utilizadas en la ingeniería \cite{white2006fluid}. 
+
+La formulación de un modelo matemático implica varios pasos clave: identificar las variables relevantes, establecer las relaciones entre estas variables (generalmente mediante leyes físicas o experimentales), y finalmente, expresar estas relaciones en forma de ecuaciones. En muchas aplicaciones, los modelos también requieren la inclusión de condiciones iniciales y de contorno, que definen el estado del sistema al inicio de la simulación y en sus límites espaciales \cite{timoshenko1983history}.
+
+\subsection{Métodos Numéricos en la Simulación}
+
+Una vez formulado el modelo matemático, la solución exacta de las ecuaciones que lo componen suele ser difícil o incluso imposible de obtener debido a su complejidad. Por esta razón, se emplean métodos numéricos que permiten aproximar las soluciones de las ecuaciones diferenciales. Entre los métodos más comunes en la simulación de sistemas de ingeniería se encuentran el método de los elementos finitos (FEM), el método de los volúmenes finitos (FVM) y el método de las diferencias finitas (FDM) \cite{versteeg2007introduction}.
+
+El método de los elementos finitos (FEM) es ampliamente utilizado en simulaciones de mecánica de sólidos y estructuras. Divide el dominio del problema en elementos más pequeños y resuelve las ecuaciones en cada uno de estos elementos, ensamblando las soluciones para obtener una aproximación global. Este método es particularmente útil para problemas con geometrías complejas y propiedades materiales variables \cite{zienkiewicz2005finite}.
+
+El método de los volúmenes finitos (FVM) es preferido en la dinámica de fluidos computacional (CFD) debido a su capacidad para conservar las cantidades físicas a través de las fronteras de los volúmenes de control. En FVM, el dominio del problema se divide en volúmenes discretos, y las ecuaciones de conservación se integran sobre cada volumen, proporcionando una aproximación precisa del flujo \cite{ferziger2012computational}.
+
+El método de diferencias finitas (FDM) es uno de los métodos numéricos más antiguos y sencillos. Aproxima las derivadas de las ecuaciones diferenciales mediante diferencias finitas, permitiendo la solución de las ecuaciones en una malla discreta de puntos. Aunque FDM es menos flexible que FEM y FVM para problemas con geometrías complejas, es eficiente y fácil de implementar en problemas bien estructurados \cite{timoshenko1983history}.
+
+Cada uno de estos métodos tiene sus propias ventajas y limitaciones, y la elección del método adecuado depende de las características específicas del problema a simular, así como de los recursos computacionales disponibles.
+
+\subsection{Limitaciones de los Modelos Matemáticos}
+
+Aunque los modelos matemáticos y los métodos numéricos son herramientas poderosas para la simulación en ingeniería, presentan varias limitaciones que deben ser consideradas.
+
+Una de las principales limitaciones es la simplificación inherente en la formulación del modelo. Para que los modelos sean manejables, a menudo es necesario simplificar ciertos aspectos del sistema, como asumir condiciones ideales o despreciar efectos secundarios. Estas simplificaciones pueden llevar a resultados que no capturan con precisión el comportamiento real del sistema \cite{karniadakis2021physics}.
+
+Otra limitación significativa es la dependencia en los datos de entrada. Los modelos matemáticos requieren parámetros que deben ser determinados a partir de datos experimentales o estimaciones. Si estos datos no son precisos o están incompletos, las predicciones del modelo pueden ser inexactas. Esto es especialmente problemático en aplicaciones donde los datos son difíciles de obtener o varían considerablemente en el tiempo \cite{oberkampf2010verification}.
+
+La computación también impone limitaciones en la simulación de modelos complejos. A medida que los modelos matemáticos se vuelven más detallados, los requisitos computacionales para resolver las ecuaciones asociadas aumentan exponencialmente. Esto puede llevar a tiempos de cálculo muy largos, incluso en supercomputadoras, lo que limita la practicidad de realizar simulaciones exhaustivas \cite{roache1998verification}.
+
+Finalmente, la validación de modelos matemáticos es un desafío crítico. Asegurarse de que un modelo simule con precisión la realidad requiere comparaciones extensivas con datos experimentales, lo cual puede ser costoso y difícil de realizar. Además, un modelo validado para un conjunto de condiciones puede no ser aplicable a situaciones diferentes, lo que limita su generalización \cite{oberkampf2010verification}.
+
+A pesar de estas limitaciones, los modelos matemáticos siguen siendo fundamentales en la ingeniería, proporcionando una base sólida para el diseño, análisis y optimización de sistemas complejos.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Mantenimiento Predictivo Basado en Modelos}
+
+\subsection{Conceptos Fundamentales del Mantenimiento Predictivo}
+
+El mantenimiento predictivo es una estrategia de gestión de activos que tiene como objetivo anticipar fallos en los equipos antes de que ocurran, permitiendo realizar intervenciones de mantenimiento en el momento óptimo. A diferencia del mantenimiento preventivo, que se basa en intervenciones programadas, el mantenimiento predictivo utiliza datos en tiempo real y modelos predictivos para evaluar la condición de los equipos y predecir posibles fallos \cite{mobley2002predictive}.
+
+El concepto fundamental del mantenimiento predictivo se basa en el monitoreo continuo de las condiciones de operación de los equipos a través de sensores que recogen datos sobre parámetros clave como vibraciones, temperatura, presión, y ruido. Estos datos son luego analizados utilizando técnicas avanzadas, como el análisis de tendencias y el machine learning, para identificar patrones que puedan indicar un fallo inminente \cite{lee2014predictive}.
+
+Los beneficios del mantenimiento predictivo son significativos, incluyendo la reducción de tiempos de inactividad no planificados, la prolongación de la vida útil de los equipos, y la optimización de los recursos de mantenimiento. Sin embargo, la implementación de un sistema de mantenimiento predictivo requiere una inversión inicial en infraestructura de monitoreo y en la integración de tecnologías avanzadas de análisis de datos \cite{mobley2002predictive}.
+
+\subsection{Modelos Predictivos y su Aplicación en Ingeniería}
+
+Los modelos predictivos son herramientas esenciales en el mantenimiento predictivo, ya que permiten anticipar fallos y optimizar las intervenciones de mantenimiento. Estos modelos se basan en datos históricos y en tiempo real, y pueden ser de diversos tipos, incluyendo modelos estadísticos, modelos de machine learning, y modelos físicos.
+
+\begin{itemize}
+    \item Modelos Estadísticos: Utilizan técnicas como el análisis de regresión y la modelización estocástica para predecir el tiempo hasta el fallo de un equipo. Estos modelos se basan en la identificación de patrones y tendencias en los datos históricos \cite{jardine2006machine}.
+    
+    \item Modelos de Machine Learning: Los modelos de machine learning, como las redes neuronales y los árboles de decisión, son capaces de aprender de grandes volúmenes de datos y mejorar sus predicciones con el tiempo. Estos modelos son particularmente útiles para identificar relaciones no lineales y complejas entre los datos de sensores y los fallos del equipo \cite{zhang2019machine}.
+    
+    \item Modelos Físicos: Basados en las leyes de la física, estos modelos simulan el comportamiento del equipo bajo diferentes condiciones de operación. Aunque son más precisos en ciertos contextos, requieren un conocimiento detallado del sistema y pueden ser más costosos de implementar \cite{marquez2012models}.
+\end{itemize}
+
+En ingeniería, estos modelos predictivos se aplican en diversas áreas, como la monitorización de la salud estructural, el control de calidad en procesos de fabricación, y la gestión de activos en plantas industriales. La elección del modelo adecuado depende de factores como la disponibilidad de datos, la complejidad del sistema, y los objetivos específicos de mantenimiento \cite{lee2014predictive}.
+
+\subsection{Integración de Modelos Digitales en el Mantenimiento Predictivo}
+
+La integración de modelos digitales, o Digital Twins, en el mantenimiento predictivo representa un avance significativo en la gestión de activos. Un Digital Twin es una réplica virtual de un sistema físico que está continuamente actualizada con datos en tiempo real, permitiendo simular y analizar el comportamiento del sistema bajo diversas condiciones \cite{gabor2021digital}.
+
+En el contexto del mantenimiento predictivo, los Digital Twins permiten predecir fallos con mayor precisión al combinar datos operativos en tiempo real con modelos predictivos avanzados. Esto facilita la identificación de problemas potenciales antes de que se conviertan en fallos críticos, y permite planificar intervenciones de mantenimiento de manera más eficiente \cite{tao2018digital}.
+
+Además, los Digital Twins permiten realizar simulaciones de escenarios "¿qué pasaría si?", lo que ayuda a los ingenieros a evaluar diferentes estrategias de mantenimiento y seleccionar la más adecuada. Esto no solo mejora la precisión de las predicciones, sino que también optimiza el uso de recursos y reduce el costo total de mantenimiento \cite{fuller2020digital}.
+
+La implementación de Digital Twins en el mantenimiento predictivo requiere la integración de tecnologías de sensores, análisis de datos en tiempo real, y plataformas de simulación avanzadas. Aunque esta integración puede ser compleja, los beneficios en términos de eficiencia operativa y reducción de costes son sustanciales, haciendo que los Digital Twins sean una herramienta cada vez más importante en la ingeniería moderna \cite{gabor2021digital}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Validación y Verificación de Modelos Digitales}
+
+\subsection{Métodos de Validación de Modelos}
+
+La validación de modelos es un proceso crucial en la simulación de sistemas físicos y en la implementación de modelos digitales, como los \textit{Digital Twins}. El objetivo de la validación es garantizar que el modelo desarrollado represente con precisión la realidad física a la que se refiere, evaluando su capacidad para predecir el comportamiento del sistema bajo diversas condiciones. Existen varios métodos de validación, cada uno con sus propias ventajas y limitaciones \cite{oberkampf2010verification}.
+
+Uno de los métodos más comunes es la validación experimental, que implica comparar las predicciones del modelo con datos obtenidos a través de experimentos o mediciones de campo. Este enfoque proporciona una base empírica para evaluar la precisión del modelo, aunque puede ser costoso y difícil de realizar en situaciones donde los datos experimentales son escasos o costosos de obtener \cite{roache1998verification}.
+
+Otro método es la validación cruzada, utilizada principalmente en modelos basados en datos y machine learning. En este enfoque, el conjunto de datos se divide en partes, utilizando una parte para entrenar el modelo y la otra para validarlo. Esto ayuda a evaluar la capacidad del modelo para generalizar a nuevos datos que no se utilizaron en su desarrollo \cite{montgomery2012applied}.
+
+Además, se puede realizar una validación por comparación, donde el modelo digital se contrasta con otros modelos existentes que han sido previamente validados. Este enfoque es útil para verificar la consistencia del modelo, aunque no reemplaza la necesidad de validación experimental directa \cite{karniadakis2021physics}.
+
+\subsection{Verificación del Modelo Mediante Simulaciones}
+
+La verificación del modelo se centra en asegurar que el modelo matemático y su implementación numérica en un software de simulación estén libres de errores. Mientras que la validación se preocupa por la precisión del modelo en representar la realidad física, la verificación garantiza que el modelo esté correctamente implementado y que las simulaciones se realicen de manera confiable \cite{oberkampf2010verification}.
+
+Un método común de verificación es la verificación por convergencia, que implica realizar simulaciones con diferentes tamaños de malla o pasos de tiempo y evaluar cómo cambian los resultados. Si los resultados se estabilizan a medida que la malla se refina, se puede tener mayor confianza en que el modelo numérico está bien implementado \cite{roache1998verification}.
+
+Otro enfoque es la verificación por pruebas de consistencia, donde se comparan los resultados de la simulación con soluciones analíticas o casos simples conocidos. Esto permite verificar que el modelo numérico y su implementación en el software producen resultados correctos en situaciones controladas \cite{zienkiewicz2005finite}.
+
+Además, la verificación cruzada entre códigos es una práctica en la que los resultados de un software de simulación se comparan con los resultados obtenidos de otro software independiente, que utiliza un método numérico diferente. Si ambos resultados coinciden dentro de un margen aceptable, se aumenta la confianza en la precisión del modelo \cite{ferziger2012computational}.
+
+\subsection{Limitaciones en la Validación y Verificación}
+
+A pesar de la importancia de la validación y verificación, estos procesos tienen limitaciones que pueden afectar la confianza en los modelos digitales.
+
+Una limitación importante es la disponibilidad de datos experimentales de alta calidad. La validación depende en gran medida de la comparación con datos reales, pero en muchas situaciones, los datos experimentales pueden ser incompletos, ruidosos o difíciles de obtener. Esto puede limitar la capacidad para validar el modelo en todas las condiciones operativas posibles \cite{oberkampf2010verification}.
+
+Otra limitación es la dependencia en las suposiciones del modelo. Todos los modelos matemáticos simplifican la realidad de alguna manera, y estas simplificaciones pueden introducir errores si las suposiciones no son válidas en todas las condiciones. La verificación puede garantizar que la implementación numérica sea correcta, pero no puede corregir las limitaciones inherentes en la formulación del modelo \cite{karniadakis2021physics}.
+
+Además, la complejidad computacional puede ser un obstáculo, especialmente en la verificación por convergencia o en la simulación de modelos complejos. Las simulaciones detalladas pueden requerir recursos computacionales significativos y tiempos de cálculo prolongados, lo que puede dificultar la realización de verificaciones exhaustivas \cite{roache1998verification}.
+
+Finalmente, es importante reconocer que la validación y verificación no garantizan que un modelo digital sea perfecto. Siempre existe un grado de incertidumbre en las simulaciones, y es esencial que los ingenieros comprendan las limitaciones y riesgos asociados con el uso de modelos digitales en la toma de decisiones \cite{oberkampf2010verification}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Normativa y Estándares en Ventilación Minera}
+
+\subsection{Normativas Internacionales sobre Ventilación Minera}
+
+La ventilación en minería subterránea está fuertemente regulada por normativas internacionales que buscan garantizar la seguridad de los trabajadores y la eficiencia de las operaciones. Estas normativas establecen requisitos mínimos para la calidad del aire, el caudal de ventilación, y la capacidad de los sistemas para diluir y eliminar contaminantes peligrosos. Entre las organizaciones más influyentes en la creación de normativas están la Organización Internacional del Trabajo (OIT), la Administración de Seguridad y Salud en las Minas (MSHA) en los Estados Unidos, y la Comisión Internacional de Minería y Metalurgia (ICMM) a nivel global.
+
+Las normativas internacionales sobre ventilación minera suelen especificar valores mínimos para el caudal de aire fresco que debe circular en las minas, dependiendo de factores como el número de trabajadores, la profundidad de la mina, y el tipo de actividades realizadas. Por ejemplo, en muchas jurisdicciones, se requiere un mínimo de 0.06 metros cúbicos por segundo de aire fresco por trabajador en ciertas operaciones subterráneas. Además, las normativas también abordan aspectos como la instalación y mantenimiento de ventiladores principales y secundarios, y el uso de sistemas de monitoreo continuo para asegurar el cumplimiento de los estándares establecidos.
+
+Estas normativas se basan en la experiencia acumulada en la industria minera y en estudios científicos que han demostrado la importancia de una ventilación adecuada para prevenir enfermedades ocupacionales y accidentes graves, como explosiones debido a la acumulación de gases inflamables.
+
+\subsection{Impacto de las Normativas en el Diseño y Operación}
+
+El cumplimiento de las normativas de ventilación tiene un impacto significativo en el diseño y operación de las minas subterráneas. Desde la fase de planificación, los ingenieros deben asegurarse de que los sistemas de ventilación estén diseñados para cumplir con los requisitos regulatorios. Esto implica seleccionar ventiladores y conductos adecuados que puedan manejar los caudales de aire necesarios, así como diseñar sistemas de control y monitoreo que permitan ajustar la ventilación en tiempo real según las condiciones operativas.
+
+En la práctica, las normativas pueden influir en la disposición de los túneles y pozos de ventilación, así como en la ubicación y configuración de los ventiladores. Los ingenieros deben considerar cómo asegurar que todas las áreas de trabajo reciban una ventilación adecuada, lo que a menudo requiere el uso de ventiladores auxiliares y sistemas de distribución de aire en zonas más remotas de la mina.
+
+Además, las normativas de ventilación también impactan en las operaciones diarias. Los operadores de las minas deben monitorear continuamente los niveles de gases tóxicos y otros contaminantes, y ajustar los sistemas de ventilación para mantener los niveles dentro de los límites permitidos. El no cumplir con estas normativas puede resultar en sanciones, cierre de operaciones, y en casos graves, accidentes que pongan en riesgo la vida de los trabajadores.
+
+\subsection{Compliance y su Importancia en la Simulación}
+
+El concepto de compliance, o cumplimiento normativo, es crucial en la industria minera, especialmente en lo que respecta a la ventilación subterránea. Asegurar que las operaciones cumplan con todas las normativas no solo es una obligación legal, sino también una estrategia esencial para gestionar los riesgos y garantizar la seguridad en las minas.
+
+En este contexto, la simulación juega un papel fundamental en el cumplimiento normativo. Las herramientas de simulación, como la dinámica de fluidos computacional (CFD), permiten a los ingenieros modelar el comportamiento del sistema de ventilación bajo diferentes escenarios operativos y asegurarse de que cumple con los estándares exigidos. Esto es especialmente importante en la fase de diseño, donde las simulaciones pueden identificar posibles problemas antes de que se implementen físicamente.
+
+Además, la simulación permite realizar análisis de escenarios hipotéticos para evaluar cómo los cambios en las condiciones operativas o en las normativas podrían afectar el sistema de ventilación. Esto proporciona a los operadores la flexibilidad necesaria para adaptarse rápidamente a nuevos requisitos regulatorios sin comprometer la seguridad o la eficiencia.
+
+La importancia del compliance en la simulación también radica en la capacidad de documentar y demostrar el cumplimiento ante las autoridades reguladoras. Las simulaciones y los datos generados pueden servir como evidencia de que los sistemas de ventilación han sido diseñados y operados de acuerdo con las normativas, lo que es crucial en auditorías y revisiones regulatorias.
+
+En resumen, el cumplimiento normativo es esencial para la seguridad y la eficiencia en la minería subterránea, y la simulación ofrece herramientas poderosas para garantizar que los sistemas de ventilación cumplan con los estándares exigidos, minimizando riesgos y optimizando operaciones.
+
+\section{Modelos de Machine Learning Aplicados en Ingeniería de Mantenimiento}
+
+La aplicación de modelos de \textit{Machine Learning} en ingeniería de mantenimiento ha cobrado gran relevancia en los últimos años debido a la necesidad de optimizar los tiempos de inactividad, reducir costes y garantizar la confiabilidad de los equipos. Estos modelos permiten predecir fallas, planificar intervenciones y mejorar la eficiencia operativa mediante el análisis de grandes volúmenes de datos procedentes de diversas fuentes \cite{bishop2006, montgomery2009}.
+
+\subsection{Tipos de modelos en el ámbito de mantenimiento}
+
+\begin{itemize}
+    \item \textbf{Modelos de clasificación:} Se emplean para asignar etiquetas a estados de las máquinas o equipos (por ejemplo, “funcionamiento normal” vs. “fallo inminente”). Herramientas como árboles de decisión, bosques aleatorios (\textit{Random Forest}), máquinas de vectores de soporte (\textit{SVM}) o redes neuronales son comunes en esta categoría \cite{zhang2020}.
+
+    \item \textbf{Modelos de regresión:} Se utilizan para estimar valores continuos, como la vida útil remanente (\textit{Remaining Useful Life}, RUL) o la evolución de indicadores de degradación en el tiempo \cite{bishop2006}.
+
+    \item \textbf{Modelos de series temporales:} Son útiles para predecir la tendencia en la evolución de ciertas variables (vibración, temperatura, presión, etc.) y así identificar patrones de desgaste o anomalías.
+
+    \item \textbf{Modelos de aprendizaje no supervisado:} Métodos de agrupamiento (\textit{clustering}) como \textit{K-means} o \textit{DBSCAN} permiten identificar comportamientos similares de máquinas y detectar valores atípicos o patrones de fallo desconocidos \cite{montgomery2009}.
+
+    \item \textbf{Modelos de \textit{Deep Learning}:} Redes neuronales convolucionales (\textit{CNN}) o redes neuronales recurrentes (\textit{RNN}) resultan efectivas para procesar grandes volúmenes de datos, especialmente en tareas de diagnóstico avanzado, clasificación de imágenes de sensores o señales de audio/vibración \cite{zhang2020}.
+\end{itemize}
+
+\subsection{Importancia y características de los datos}
+
+Para entrenar de manera efectiva cualquier modelo de \textit{Machine Learning} en el contexto del mantenimiento, la calidad y la pertinencia de los datos resultan críticas. Entre las principales consideraciones destacan:
+
+\begin{enumerate}
+    \item \textbf{Fuentes de datos variadas:}
+        \begin{itemize}
+            \item \textit{Datos de sensores:} Medidas de vibración, temperatura, corriente eléctrica, presión, entre otros.
+            \item \textit{Registros históricos de mantenimiento:} Información de averías pasadas, intervenciones de servicio, tiempos de parada y costos asociados.
+            \item \textit{Parámetros operativos:} Velocidad de operación, carga de trabajo, ciclos de producción, etc.
+            \item \textit{Datos contextuales o externos:} Condiciones ambientales (humedad, temperatura ambiente), uso de materias primas de distinta calidad o cambios en los procedimientos operativos.
+        \end{itemize}
+
+    \item \textbf{Cantidad y representatividad de los datos:}
+        \begin{itemize}
+            \item Para entrenar modelos robustos, se requieren historiales amplios, con ejemplos de comportamientos normales y casos de falla.
+            \item Es fundamental contar con suficientes muestras que reflejen diferentes modos de operación y condiciones de funcionamiento.
+        \end{itemize}
+
+    \item \textbf{Calidad y limpieza de los datos:}
+        \begin{itemize}
+            \item Datos incompletos, inconsistentes o erróneos pueden conducir a modelos poco fiables.
+            \item La normalización, eliminación de valores atípicos y la imputación de datos faltantes suelen ser parte esencial del preprocesamiento.
+        \end{itemize}
+
+    \item \textbf{Etiquetado adecuado (para casos supervisados):}
+        \begin{itemize}
+            \item En modelos de pronóstico o clasificación, se requiere etiquetar correctamente los eventos de fallo, la fecha de la avería o el tiempo hasta la falla.
+            \item Un etiquetado deficiente puede sesgar el aprendizaje y reducir la capacidad predictiva del modelo.
+        \end{itemize}
+
+    \item \textbf{Frecuencia y adquisición de datos en tiempo real:}
+        \begin{itemize}
+            \item Con la adopción de la Industria 4.0, los equipos generan grandes volúmenes de datos en tiempo real.
+            \item La capacidad de capturar, procesar y analizar estos datos de manera continua es un factor decisivo para un mantenimiento predictivo eficiente.
+        \end{itemize}
+\end{enumerate}
+
+En definitiva, la selección y la calidad de los datos representan uno de los pilares fundamentales para la aplicación de modelos de \textit{Machine Learning} en el mantenimiento. Una vez garantizada la fiabilidad y relevancia de la información, la elección del tipo de modelo (clasificación, regresión, \textit{clustering}, entre otros) y los métodos de validación adecuados permitirán desarrollar sistemas de mantenimiento inteligentes capaces de anticipar fallas, optimizar recursos y reducir costes.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\subsubsection{Teoría A.2 - Modelo}
+%Como se aprecia en el Figura \ref{fig:ejemp}.
+%\begin{figure}[H]
+%    \centering
+%    \includegraphics[width=9cm]{auxiliares/logo_usach.png}
+%    \caption{Logo USACH.}
+%    \label{fig:ejemp}
+%    \source{En caso de que la imagen sea adaptada de otro libro o se extraída de un libro}
+%\end{figure}
+%
+%Cita al final de texto: \cite{9952}.\\
+%
+%Cita donde se refiere a una persona/as segun sus dichos en un año: \cite{isometrico}.

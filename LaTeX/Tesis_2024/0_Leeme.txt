@@ -1,0 +1,52 @@
+Este archivo sirve de referencia en formato y estructura para tesis de Ingeniería Civil Mecánica, USACH.
+
+Algunas consideraciones:
+
+- No cambiar la portada, ya que es la solicitada por la unidad académica (Facultad de Ingeniería y DMCC) para publicación en biblioteca.
+
+- Formato del documento, archivo: "umemoria.cls". Aquí se ajustó la portada, estructura de páginas preliminares, se quita la palabra capítulos (ya que no es un libro con capítulos diferentes), se cargaron paquetes, se ajustó formato APA en español para referencias, etc.
+
+- Estructura del documento, archivo: "1_cuerpo.tex", aqui se denota el tipo de documento en base a "umemoria.cls", se solicitan datos como nombre de autor, nombre de tesis, estado de avance, profesores de comisión, profesor guía, año, etc. También se anexa la bibliografía en bibtex, se solicita texto de páginas preliminares, y se adjuntan en orden los capítulos de la tesis (Introducción / Objetivos / Metodología / Marco Teórico / Resultados / Discusión / Conclusión). Se añade bibliografía al documento y se configura el anexo según requerimientos de la universidad.
+
+- Se puede omitir el Abstract (opcional) y capítulos en función del estado de avance, comentando el apartado con %.
+
+----
+
+- Los apartados de la A a la F seguidos de _ y nombre del capítulo en el menú de elementos de la izquierda, corresponden a capítulos aislados para efectos de orden.
+
+- La bibliografía o referencias se deben adjuntar en el archivo "g_bibliografia.bib" en formato bibtex. Para que aparezcan en el texto hay dos opciones:
+
+    \citep{nombre} -> "(autor, año)" esta se utiliza de referencia al final de párrafos.
+
+    \citet{nombre} -> "autor (año)" esta se utiliza para parafrasear lo que un autor dijo. Ej: autor (año), menciona que la electricidad es...
+
+- El anexo se utiliza solo si es necesario. Se pueden utilizar dentro del archivo "h_anexo.tex" comandos como \chapter{} \section{} \subsection{} \subsubsection{} para hacer calzar el nivel desde donde se está anexando la información (opcional), ya que se puede anexar en diferentes niveles del capítulo y se observa más ordenado en la Tabla de Contenido. Ej:
+
+  Anexo A. \chapter{Marco Teórico}
+    A.1. Sección 1
+      A.1.1. Subsección 1
+        A.1.1.1. Subsubsección 1
+      A.1.2. Subsección 2
+        A.1.2.2. Subsubsección 2
+    A.2. Sección 2
+      A.2.1. Subsección 2
+        A.2.1.1. Subsubsección 2
+
+Para utilizar referencias automáticas desde el texto global al anexo, en el apartado del anexo agregar "\label{nombre}" y referenciar al anexo desde el texto global como \ref{nombre}. Ej: Para más información, dirigirse al Anexo \ref{nombre} -> esto genera que diga el nivel o numerología del anexo (también se puede utilizar para referenciar apartados anteriores del documento).
+
+- Las tablas tienen su \caption{ } arriba según formato de universidad. Las imágenes tiene su \caption{ } abajo. Considerar agregar el comando \source{ } para detallar de donde fue extraída la imagen o tabla, si fue adaptada (modificada o traducida) o creada.
+
+- Para realizar saltos de página utilizar "\cleardoublepage" para no afectar contadores en páginas y que así el ToC referencie de manera correcta.
+
+- Para más apartados dentro de una subsubsección utilizar "\paragraph{}"
+
+- Se incluye el archivo "hints.tex" donde se pueden incluir comandos repetitivos en formulas o más intuitivos. Ej:
+
+    \mathbb{E} -> \E -> E de esperanza
+    \varepsilon -> \error -> epsilon bonito
+
+- Los agradecimientos no deberían exceder más de una hoja.
+
+---
+
+Para publicar en biblioteca se debe eliminar los derechos de autor (los utilizamos en un inicio ya que se descarga y envía el archivo muchas veces) y en la portada se debe omitir comisión evaluadora y estado de avance, para ello ir al archivo umemoria.cls y buscar \maketitle, aqui se pueden quitar los apartados no necesarios para la publicación y ajustar el texto de la portada en función de la información eliminada.

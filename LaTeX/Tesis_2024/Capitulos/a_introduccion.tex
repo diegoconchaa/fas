@@ -1,0 +1,36 @@
+\chapter{Introducción}
+
+El proceso de ventilación minera juega un papel fundamental en la seguridad y eficiencia de la explotación subterránea. En entornos mineros, el control del flujo de aire es esencial para mantener condiciones de trabajo óptimas, garantizar la extracción de gases nocivos y reducir la temperatura generada por la maquinaria y el personal. Los ventiladores representan el corazón de estos sistemas, y su desempeño influye de forma directa en la calidad del ambiente subterráneo y en los costos de operación y mantenimiento \cite{Zhou2020, Sanchis2022}.
+
+En el presente trabajo, se plantea el desarrollo de un túnel de viento a escala que simula de manera análoga el funcionamiento de un sistema de ventilación minera. Este prototipo integra un ventilador regulado por un controlador basado en Arduino, así como un conjunto de sensores que permiten medir parámetros operativos como corriente, voltaje, vibración, temperatura y flujo de aire. A partir de dichos datos, se construye un modelo de Dinámica de Fluidos Computacional (CFD) con el fin de validar la precisión de las simulaciones frente a los registros experimentales \cite{ANSYS2021}. Este enfoque posibilita el estudio detallado de la distribución del flujo de aire dentro del sistema y la identificación de condiciones operativas óptimas, así como el análisis de potenciales fallas o anomalías.
+
+El objetivo central de la tesis es establecer una aproximación para el mantenimiento predictivo de sistemas de ventilación minera a partir de la correlación entre los datos obtenidos en el prototipo y los resultados de simulación. Con un control y una adquisición de datos en tiempo real, se busca detectar de manera temprana posibles condiciones de mal funcionamiento o estados de degradación del equipo, sentando las bases para futuros estudios que involucren la implementación de modelos de machine learning o algoritmos de diagnóstico avanzado.
+
+\section{Motivación y Justificación}
+La industria minera, y en particular la que opera en espacios subterráneos, enfrenta retos constantes relacionados con la calidad del aire y la eficiencia energética. La necesidad de reducir costos operativos, junto con el imperativo de mantener la seguridad de los trabajadores, ha motivado el desarrollo de sistemas de ventilación más fiables y eficientes \cite{Zhou2020}. No obstante, la validación de estos sistemas mediante pruebas a gran escala puede ser costosa y compleja, especialmente en entornos mineros activos.
+
+En este contexto, la implementación de un túnel de viento a escala representa una alternativa viable para la experimentación. El uso complementario de simulaciones CFD posibilita la comprensión de la dinámica del flujo de aire, así como el análisis de escenarios de operación y la detección temprana de condiciones potencialmente peligrosas. Al comparar los datos reales del prototipo con los resultados de simulación, se aporta un método objetivo para el diseño y la evaluación de esquemas de mantenimiento predictivo en ventiladores mineros \cite{Sanchis2022}.
+
+\section{Planteamiento del Problema}
+En la práctica, gran parte de los planes de mantenimiento de ventiladores mineros se ejecutan de manera preventiva, basándose en ciclos de reemplazo o revisión establecidos. Dichos planes no siempre reflejan el estado real de la maquinaria, dando lugar a un sobredimensionamiento de las intervenciones o, en su defecto, a fallos imprevistos que incrementan los costos de operación y el riesgo de accidentes. Existe, por tanto, la necesidad de desarrollar un método que permita correlacionar mediciones en tiempo real (vibraciones, temperaturas críticas, flujo de aire y consumo eléctrico) con modelos de simulación, a fin de anticipar potenciales fallas y reducir las paradas no planificadas.
+
+Para abordar esta problemática, se propone la construcción de un túnel de viento a escala que, a través de un sistema de adquisición de datos y de un modelo CFD, permita establecer una línea base de comportamiento normal. Sobre dicha línea base, sería posible identificar derivaciones anómalas e implementar estrategias de mantenimiento predictivo con mayor efectividad.
+
+\section{Objetivos}
+\subsection{Objetivo General}
+Diseñar e implementar un modelo a escala de un túnel de viento con analogía a sistemas de ventilación minera, con instrumentación y control basados en Arduino, a fin de evaluar y correlacionar datos de operación con un modelo de Dinámica de Fluidos Computacional (CFD) para el desarrollo de estrategias de mantenimiento predictivo.
+
+\subsection{Objetivos Específicos}
+\begin{itemize}
+    \item \textbf{Diseñar y construir el prototipo a escala:} Elaborar la estructura del túnel de viento y el sistema de ventilación, considerando aspectos geométricos y operativos que se asemejen a los conductos y ventiladores de la industria minera.
+    \item \textbf{Integrar la instrumentación y el control:} Seleccionar e instalar sensores de corriente, voltaje, temperatura, vibración y flujo de aire, así como programar el microcontrolador Arduino para gestionar y registrar en tiempo real los datos del sistema.
+    \item \textbf{Desarrollar el modelo CFD:} Configurar y ejecutar la simulación en software especializado, como ANSYS, para modelar la dinámica del flujo de aire y las condiciones térmicas y estructurales del prototipo a distintas RPM del ventilador.
+    \item \textbf{Comparar datos experimentales y simulación:} Validar el modelo CFD mediante la comparación de los valores obtenidos en pruebas experimentales con las predicciones numéricas en diversas condiciones operativas.
+    \item \textbf{Proponer lineamientos de mantenimiento predictivo:} Basarse en la correlación entre las mediciones del prototipo y la simulación para formular recomendaciones que puedan extrapolarse a sistemas de ventilación a escala real.
+\end{itemize}
+
+\newpage
+\section{Alcance y Limitaciones}
+El presente estudio se circunscribe al diseño, construcción y validación de un túnel de viento a escala que reproduce de manera simplificada un sistema de ventilación minera. El análisis de resultados se enfoca en la medición de parámetros como corriente, voltaje, vibración, flujo de aire y temperatura, sin abarcar modificaciones sustanciales en la geometría de las palas del ventilador o la implementación de sistemas de supresión de polvo o extracción de gases propios de la minería real. 
+
+Aunque el modelo CFD se configura con condiciones análogas a las encontradas en entornos mineros, no se contemplan variaciones extremas de presión ni la presencia de contaminantes químicos en el flujo de aire. Asimismo, la extrapolación a sistemas de mayor escala se realiza de forma cualitativa, sentando las bases para investigaciones futuras enfocadas en la validación de algoritmos de mantenimiento predictivo a gran escala.
