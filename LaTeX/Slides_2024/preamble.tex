@@ -1,0 +1,241 @@
+\documentclass[
+    %handout,
+    10pt,
+    aspectratio=169,
+    c, % place the text of the slides in the top [t], center [c] (default) or bottom [b] 
+    ]
+    {beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{csquotes}
+\usepackage{amssymb,amstext,amsmath,mathtools,bm}
+    \usefonttheme[onlymath]{serif} % Classical math fonts
+\usepackage{siunitx}
+\usepackage{media9}
+\usepackage{etoolbox}
+
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{caption}
+\captionsetup[figure]{labelformat=default,labelsep=colon,
+                      name=Figura,font=scriptsize}
+
+\captionsetup[table]{labelformat=default,labelsep=colon,
+                     name=Tabla,font=scriptsize}
+
+
+\AtBeginEnvironment{equation}{\footnotesize}
+\AtBeginEnvironment{equation*}{\footnotesize}
+\AtBeginEnvironment{align*}{\footnotesize}
+\AtBeginEnvironment{align}{\footnotesize}
+\AtBeginEnvironment{cases}{\footnotesize}
+\AtBeginEnvironment{array}{\footnotesize}
+\AtBeginEnvironment{gather}{\small}
+\AtBeginEnvironment{multline}{\small}
+\let\oldeq\[
+\let\endoldeq\]
+\renewcommand{\[}{\small\oldeq}
+\renewcommand{\]}{\endoldeq}
+
+\usepackage[tableposition=top]{caption}
+\usepackage{subcaption}
+\usepackage{multirow, makecell}
+\usepackage{threeparttable}
+\usepackage{textcomp}
+\usepackage{gensymb} 
+\usepackage{comment}
+\usepackage{booktabs}
+\setbeamertemplate{caption}[numbered]
+
+    %\sisetup{input-decimal-markers={.},group-separator={\,}}
+%\usepackage{multicol,multirow}
+%\usepackage{booktabs}
+
+\graphicspath{{figures/}{usach_oocc/}}
+
+\usepackage[backend=bibtex,
+			style=numeric,
+			natbib=true,
+			date=year,
+			doi=false,
+			isbn=false,
+			url=false,
+			sorting=none,
+			giveninits=true, % Abbreviates names
+			uniquename=init, % Option compatible with firstinits/giveninits
+			%maxbibnames=15,  % Max # of author per citation in the bibliography
+			%maxcitenames=2,  % Max # of author per citation in the text
+			%dashed=false,    % false: Get full name twice in Bibliography
+			]{biblatex}
+\addbibresource{bibfile.bib}
+
+\renewcommand*{\bibfont}{\scriptsize}
+
+
+% ---------------------------------------------------------------------------- %
+\usepackage{xcolor}
+
+% Normas graficas 2023: https://guiaweb.usach.cl/normas-gr%C3%A1ficas
+% RGB
+\definecolor{UsachVerde}{RGB}{0,164,153}
+\definecolor{UsachNaranjo}{RGB}{234,118,0}
+\definecolor{UsachGris}{RGB}{57,64,73}
+\definecolor{Verde}{RGB}{18,89,82}
+\definecolor{Azul}{RGB}{19,103,138}
+
+% CMYK
+%\definecolor{UsachVerde}{cmyk}{100,0,48,0}
+%\definecolor{UsachNaranjo}{cmyk}{0,60,100,0}
+%\definecolor{UsachGris}{cmyk}{78,64,53,44}
+
+% Deprecated
+%\definecolor{UsachGris}{RGB}{117,117,117}
+%\definecolor{UsachAzul}{RGB}{0,47,108}
+
+% 
+% ---------------------------------------------------------------------------- %
+\usepackage{eso-pic}
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamertemplate{background canvas}{%
+	\AddToShipoutPictureBG*{\includegraphics[width=\paperwidth,height=\paperheight]{plantilla_usach_ppt}}
+}
+
+% ---------------------------------------------------------------------------- %
+\setbeamercolor{title}{fg=UsachNaranjo}
+\setbeamerfont{title}{series=\bfseries}
+
+\setbeamercolor{subtitle}{fg=UsachGris}
+\setbeamerfont{subtitle}{size=\large,series=\normalfont}
+
+\setbeamercolor{author}{fg=black}
+\setbeamerfont{author}{size=\normalsize,series=\normalfont}
+
+\setbeamercolor{institute}{fg=black}
+\setbeamerfont{institute}{size=\footnotesize,series=\normalfont}
+\makeatletter
+	\def\beamer@andinst{\\[3pt]}
+\makeatother
+
+%\setbeamercolor{date}{fg=UsachVerde}
+\setbeamercolor{date}{fg=black}
+\setbeamerfont{date}{size=\footnotesize,series=\normalfont}
+
+\setbeamertemplate{title page}{
+	\AddToShipoutPictureBG*{\includegraphics[width=\paperwidth,height=\paperheight]{titletemplate.pdf}}
+	\begin{center}
+		\usebeamercolor[fg]{title}\usebeamerfont{title}
+		\vspace*{25pt} %Distancia borde superior al titulo.
+		\inserttitle
+		\ifx\insertsubtitle\@empty
+		\else
+			\vskip3pt
+			\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}
+			\insertsubtitle
+		\fi
+		%
+		\ifx\insertauthor\@empty
+		\else
+			\usebeamerfont{author}\usebeamercolor[fg]{author}
+			\vfill
+			\insertauthor
+		\fi
+		%
+		\ifx\insertinstitute\@empty
+		\else
+			\usebeamerfont{institute}\usebeamercolor[fg]{institute} 
+			\vfill
+			\insertinstitute
+		\fi
+		%
+		\ifx\insertdate\@empty
+		\else
+			\usebeamerfont{date}\usebeamercolor[fg]{date}
+			\vfill
+			\insertdate
+		\fi
+		%
+		\ifx\inserttitlegraphic\@empty
+		\else
+			\vfill
+			\inserttitlegraphic
+		\fi
+	\end{center}
+}
+
+% ---------------------------------------------------------------------------- %
+\setbeamercolor{frametitle}{fg=UsachGris}
+    \setbeamerfont{frametitle}{size=\large}
+\setbeamercolor{framesubtitle}{fg=UsachGris}    
+    \setbeamerfont{framesubtitle}{size=\fontsize{10}{12}}
+
+\makeatletter
+	\setbeamertemplate{frametitle}{
+		\ifx\insertframesubtitle\@empty
+			\setbeamerfont{frametitle}{size=\fontsize{22}{0}}
+			\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}
+			\vspace*{16pt}\hspace*{45pt}\insertframetitle %% TITULO FRAME.
+		\else
+			\setbeamerfont{frametitle}{size=\fontsize{18}{0}}
+			\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}
+			\vspace*{12pt}\hspace*{45pt}\insertframetitle\\
+			\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}
+			\vspace*{-1pt}\hspace*{45pt}\insertframesubtitle\vspace*{-5pt}
+		\fi
+	}
+\makeatother
+
+% ---------------------------------------------------------------------------- %
+%\setbeamercolor{footline}{fg=UsachGris}
+\setbeamerfont{footline}{size=\small}
+\makeatletter
+\setbeamertemplate{footline}{
+    \usebeamercolor{UsachGris}
+	\usebeamerfont{footline}
+	\begin{flushright}%
+		%\insertframenumber/\inserttotalframenumber$\quad$
+		\insertframenumber$\quad$
+		\vspace{9pt}
+	\end{flushright}%
+}
+\makeatother
+
+% ---------------------------------------------------------------------------- %
+\setbeamercolor{block title}{use=structure,fg=white,bg=UsachVerde!70!white}
+\setbeamercolor{block title example}{use=structure,fg=white,bg=UsachNaranjo}
+\setbeamercolor{block title alerted}{use=structure,fg=white,bg=UsachNaranjo}
+\setbeamerfont{block title}{size=\normalsize}
+
+\setbeamertemplate{blocks}[rounded][shadow]
+
+% ---------------------------------------------------------------------------- %
+\setbeamercolor{item}{fg=UsachNaranjo}
+\setbeamertemplate{itemize items}[circle]
+
+\setbeamercolor{subitem}{fg=UsachNaranjo}
+\setbeamertemplate{itemize subitem}{\textendash}
+
+
+
+\usepackage{xcolor,colortbl}
+\usepackage{ragged2e}
+
+\lstdefinestyle{foamstyle}{
+    basicstyle=\ttfamily\scriptsize, 
+    numbers=left,                    
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=5pt,
+    backgroundcolor=\color{white},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    frame=single,
+    breaklines=true,
+    breakatwhitespace=true,
+    captionpos=b
+}
+
+\lstset{style=foamstyle}
